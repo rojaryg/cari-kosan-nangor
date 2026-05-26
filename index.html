@@ -444,8 +444,6 @@ const rawKosanData = [
     {name:"Kosan Ajoy",area:"Lainnya",rating:5.0,reviews:5,address:"Jalan Kp. Persib",website:""},
     {name:"Kosan ibu Tintin",area:"Lainnya",rating:4.0,reviews:5,address:"Warung Kalde",website:""},
     {name:"Casa De Fiore",area:"Cikuda",rating:4.2,reviews:5,address:"Jl. Cikuda No.9",website:""},
-    
-    // --- 84 Data Terakhir ---
     {name:"Rumah Kost Teh Dewi",area:"Puri",rating:4.2,reviews:5,address:"Belakang hotel Puri khatulistiwa, Bojong eureun",website:""},
     {name:"Sepohon Kost",area:"Sayang",rating:4.8,reviews:5,address:"Jl. Kolonel Achmad Syam No.150",website:""},
     {name:"Kost M3",area:"Ciawi",rating:5.0,reviews:5,address:"Gg H Nena, Ds Ciawi Wetan",website:""},
@@ -534,9 +532,9 @@ const kosanData = rawKosanData.map(k => {
   k.hot = k.reviews >= 100;
   k.isTerbaik = k.rating === 5.0;
   
-  // Format link Google Maps
+  // Format link Google Maps YANG BENAR: https://www.google.com/maps/search/?api=1&query=
   const searchQuery = encodeURIComponent(k.name + " Jatinangor");
-  k.mapsLink = `http://googleusercontent.com/maps.google.com/?q=${searchQuery}`;
+  k.mapsLink = `https://www.google.com/maps/search/?api=1&query=${searchQuery}`;
 
   return k;
 });
