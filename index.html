@@ -28,7 +28,7 @@
     --amber-bg: #412402; --amber-text: #FAC775; --amber-bd: #854F0B;
     --coral-bg: #4A1B0C; --coral-text: #F0997B; --coral-bd: #993C1D;
     --blue-bg: #042C53; --blue-text: #85B7EB; --blue-bd: #185FA5;
-    --red-bg: #501313; --red-text: #F09595;
+    --red-bg: #501313; --red-text: #F09595; --red-bd: #8a1d1d;
 
     --font: 'Plus Jakarta Sans', sans-serif;
     --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2); 
@@ -53,31 +53,31 @@
     --green-bg: #DCFCE7; --green-text: #166534; --green-bd: #BBF7D0;
     --amber-bg: #FEF3C7; --amber-text: #92400E; --amber-bd: #FDE68A;
     --coral-bg: #FEE2E2; --coral-text: #991B1B; --coral-bd: #FECACA;
-    --red-bg: #FEE2E2;   --red-text: #B91C1C;
+    --red-bg: #FEE2E2;   --red-text: #B91C1C; --red-bd: #FECACA;
     --blue-bg: #DBEAFE;  --blue-text: #1E40AF; --blue-bd: #BFDBFE;
     --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
   }
 
-  /* --- 3. TEMA SAMUDRA (OCEAN BLUE) --- */
-  [data-theme="samudra"] {
-    --bg-outer: #0284C7;
-    --bg-3: #E0F2FE;
-    --bg: #F0F9FF;
-    --bg-2: #BAE6FD;
-    --text: #082F49; 
-    --text-2: #0369A1; 
-    --text-3: #38BDF8;
-    --border: #7DD3FC; 
-    --border-2: #0284C7; 
-    --accent: #0284C7;
-    --accent-hover: #0369A1;
+  /* --- 3. TEMA MIKU (PINK SAKURA & TEAL) --- */
+  [data-theme="miku"] {
+    --bg-outer: #00C4B6; 
+    --bg-3: #bce8e4;     
+    --bg: #FFF0F7;       
+    --bg-2: #D8F5F3;     
+    --text: #1A2B2A; 
+    --text-2: #005D57; 
+    --text-3: #007871;
+    --border: #99D5D0; 
+    --border-2: #E3007F; 
+    --accent: #E3007F;   
+    --accent-hover: #C7006E;
     
-    --red-bg: #FFE4E6; --red-text: #BE123C;
-    --blue-bg: #E0F2FE; --blue-text: #0369A1; --blue-bd: #7DD3FC;
-    --green-bg: #D1FAE5; --green-text: #047857; --green-bd: #6EE7B7;
-    --amber-bg: #FEF3C7; --amber-text: #B45309; --amber-bd: #FCD34D;
+    --red-bg: #FCE6F1; --red-text: #E3007F; --red-bd: #FBCFE8;
+    --blue-bg: #D8F5F3; --blue-text: #006B65; --blue-bd: #99D5D0;
+    --green-bg: #D8F5F3; --green-text: #006B65; --green-bd: #99D5D0;
+    --amber-bg: #FEF3C7; --amber-text: #92400E; --amber-bd: #FDE68A;
     
-    --shadow: 0 4px 6px -1px rgba(2, 132, 199, 0.15), 0 2px 4px -1px rgba(2, 132, 199, 0.1);
+    --shadow: 0 4px 6px -1px rgba(0, 160, 150, 0.15), 0 2px 4px -1px rgba(0, 160, 150, 0.1);
   }
 
   body { 
@@ -114,7 +114,7 @@
     width: 100%; padding: 14px 16px 14px 44px; background: var(--bg-2); border: 1px solid var(--border);
     border-radius: var(--radius); font-family: var(--font); font-size: 14px; color: var(--text); outline: none; transition: all 0.2s;
   }
-  .search-box input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(56, 139, 253, 0.15); }
+  .search-box input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(227, 0, 127, 0.15); }
 
   .scroll-x-container { display: flex; flex-direction: column; gap: 12px; }
   .chip-row { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; -ms-overflow-style: none; scrollbar-width: none; }
@@ -170,7 +170,8 @@
   }
   .btn-maps { background: #4285F4; color: white; }
   .btn-maps:active { background: #3367D6; }
-  .btn-web { background: var(--bg-2); color: var(--accent); border: 1px solid var(--border-2); }
+  
+  .btn-web { background: var(--bg-2); color: var(--text-2); border: 1px solid var(--border); }
   
   .toggle-text { text-align: center; font-size: 12px; color: var(--accent); font-weight: 600; margin-top: 12px; }
   .empty-state { text-align: center; padding: 40px 20px; color: var(--text-3); }
@@ -192,7 +193,9 @@
       <div style="display: flex; gap: 4px;">
         <button class="chip chip-theme" id="btnDark" onclick="setTheme('dark')"><i class="ti ti-moon"></i></button>
         <button class="chip chip-theme" id="btnLight" onclick="setTheme('light')"><i class="ti ti-sun"></i></button>
-        <button class="chip chip-theme" id="btnSamudra" onclick="setTheme('samudra')"><i class="ti ti-ripple"></i></button>
+        <button class="chip chip-theme" id="btnMiku" onclick="setTheme('miku')">
+            <span style="font-weight:700; font-family: 'DM Mono', monospace; letter-spacing:-1px;">ミク</span>
+        </button>
       </div>
     </div>
 
@@ -224,225 +227,307 @@ function setTheme(themeName) {
   
   localStorage.setItem('kosan-theme-mobile', themeName);
   
-  ['btnDark', 'btnLight', 'btnSamudra'].forEach(id => {
+  ['btnDark', 'btnLight', 'btnMiku'].forEach(id => {
     document.getElementById(id).style.color = (id.toLowerCase().includes(themeName) || (themeName==='dark' && id==='btnDark')) ? 'var(--accent)' : 'var(--text-2)';
   });
 }
 const savedTheme = localStorage.getItem('kosan-theme-mobile') || 'dark';
 setTheme(savedTheme);
 
-// --- 2. DATA KOSAN (Hampir 200 Data dari CSV) ---
+// --- 2. DATA KOSAN (Semua 283 Data Unik dari CSV) ---
 const AREA_COLORS = {
   "Ciseke": "#E11D48", "Caringin": "#2563EB", "GKPN": "#16A34A",
   "Jalan Raya": "#D97706", "Puri": "#7C3AED", "Cikuda": "#0891B2", 
   "Sayang": "#C026D3", "Hegarmanah": "#059669", "Sukawening": "#0D9488",
-  "Kp. Geulis": "#F43F5E", "Ciawi": "#8B5CF6", "Cisaladah": "#EA580C", "Lainnya": "#64748B"
+  "Kp. Geulis": "#F43F5E", "Ciawi": "#8B5CF6", "Cisaladah": "#EA580C", "Cibeusi": "#0284C7", "Lainnya": "#64748B"
 };
 
 const rawKosanData = [
-  // 100 Data Pertama (Sebelumnya)
-  {name:"Casa de Aminda",area:"Jalan Raya",rating:4.2,reviews:532,address:"Jl. Ir. Soekarno No.309",website:"https://amindahotel.com/"},
-  {name:"Pondok Abah uni 1 & 2 jatinangor",area:"Ciawi",rating:5.0,reviews:227,address:"Ciawi Gg haji nena",website:""},
-  {name:"KOST PURI TORINA Jatinangor",area:"Cikuda",rating:4.5,reviews:197,address:"Jl. Cikuda No.16",website:"http://puritorina.com/"},
-  {name:"Bumi Kartika Asri",area:"Caringin",rating:4.5,reviews:171,address:"Jl. Caringin No.20",website:"http://www.bumikartikaasri.com/"},
-  {name:"Wisma Tri Arga",area:"GKPN",rating:4.3,reviews:154,address:"Jl. GKPN No.80 A",website:""},
-  {name:"Wisma Boulevard 1",area:"Caringin",rating:4.3,reviews:137,address:"Jl. Caringin No.69A",website:""},
-  {name:"Aparkost HMG & GANESHA Tower",area:"Caringin",rating:4.3,reviews:136,address:"Jl. Caringin",website:""},
-  {name:"Nuansa Indah Kost",area:"Sayang",rating:4.9,reviews:134,address:"Jl. Letda Lukito No.19",website:""},
-  {name:"Rumah Kost Bumi Sadang",area:"GKPN",rating:4.8,reviews:108,address:"Jl. GKPN No.38",website:""},
-  {name:"Wisma Arkey",area:"Caringin",rating:4.5,reviews:103,address:"Jl. Caringin",website:""},
-  {name:"Pondok Raditya",area:"Ciseke",rating:4.3,reviews:98,address:"Jl. Ciseke No.189",website:""},
-  {name:"Bunga Mas Kost",area:"Jalan Raya",rating:4.2,reviews:92,address:"Jl. Raya Jatinangor No.220",website:""},
-  {name:"KosAnggrek",area:"Sayang",rating:4.6,reviews:79,address:"Jl. Kolonel Achmad Syam",website:""},
-  {name:"Wisma Jayalaras Kos Putra",area:"GKPN",rating:4.5,reviews:79,address:"Jl. GKPN No.34",website:""},
-  {name:"Pondok Dara 1",area:"Jalan Raya",rating:4.4,reviews:78,address:"Jl. Raya Jatinangor No.94",website:""},
-  {name:"Wisma Jatinangor 3",area:"Puri",rating:4.4,reviews:76,address:"Perum Puri Indah No.25 Blok B1",website:""},
-  {name:"Permata Kost",area:"Sukawening",rating:4.3,reviews:72,address:"Jl. Sukawening",website:""},
-  {name:"Kost Green House Jatinangor",area:"Hegarmanah",rating:4.4,reviews:69,address:"Hegarmanah",website:""},
-  {name:"Pondok Djati",area:"GKPN",rating:4.5,reviews:69,address:"Jl. GKPN",website:""},
-  {name:"Pondok Sakinah 2",area:"Ciseke",rating:4.1,reviews:69,address:"Jl. Ciseke",website:""},
-  {name:"Kost Flosse House Jatinangor",area:"Puri",rating:4.4,reviews:69,address:"Jl. Puri Asri IV, Blok C5/2-6",website:""},
-  {name:"Anabela",area:"GKPN",rating:4.3,reviews:69,address:"Jl. GKPN",website:""},
-  {name:"Pondok Vandani",area:"Jalan Raya",rating:4.0,reviews:66,address:"Jl. Cipacing",website:""},
-  {name:"Casa Mia Kost Exclusive",area:"Sayang",rating:4.5,reviews:65,address:"Jl. Kolonel Achmad Syam No.192",website:""},
-  {name:"Kosan Jatinangor Asri",area:"Jalan Raya",rating:4.2,reviews:64,address:"Jatinangor",website:""},
-  {name:"Pondok Kayu",area:"Sayang",rating:4.6,reviews:64,address:"Jl. Kolonel Achmad Syam No.48 A",website:""},
-  {name:"Kost The Hill Jatinangor",area:"Sayang",rating:5.0,reviews:57,address:"Jl. Pesantren No.17",website:""},
-  {name:"Kost Putri Jatinangor",area:"Puri",rating:4.5,reviews:56,address:"Jl. Kolonel Achmad Syam No.Blok A",website:""},
-  {name:"KOST PRIMADINA",area:"Sukawening",rating:4.8,reviews:56,address:"Jl. Sukawening",website:""},
-  {name:"Rumah Khairaa Kost",area:"Cikuda",rating:4.8,reviews:56,address:"Jl. Letda Lukito Dsn.Cikuda No.18",website:""},
-  {name:"Kost D'xtrie",area:"Sukawening",rating:4.4,reviews:54,address:"Sukawening",website:""},
-  {name:"Pondok Angsana",area:"Ciseke",rating:4.1,reviews:50,address:"Jl. Ciseke No.324",website:""},
-  {name:"Elysia Residence",area:"Caringin",rating:5.0,reviews:50,address:"Jl. Caringin Garden Residence No.4 Kav. A",website:""},
-  {name:"KOST Al Ruwais",area:"Sayang",rating:4.8,reviews:49,address:"Jl. Kolonel Achmad Syam No.98",website:""},
-  {name:"Griya Santosa",area:"Cikuda",rating:4.5,reviews:46,address:"Jl. Cikuda",website:""},
-  {name:"Kost Putri Wisma Mayangsari",area:"Jalan Raya",rating:4.5,reviews:46,address:"Jl. Itjang Djoedibarie",website:""},
-  {name:"Pondok Sehat Jatinangor",area:"Jalan Raya",rating:5.0,reviews:46,address:"Jl. KH Hasan Mustopha",website:""},
-  {name:"Rumah Kacapiring",area:"Cikuda",rating:4.7,reviews:46,address:"Cikeruh",website:""},
-  {name:"J-Kost",area:"Puri",rating:4.5,reviews:46,address:"Jl. Puri Indah Jatinangor No.17 Blok C6",website:""},
-  {name:"Pondok Orange",area:"Sayang",rating:4.4,reviews:44,address:"Jl. Kolonel Achmad Syam No.46",website:""},
-  {name:"Pondok Putri Barokah 232",area:"Ciseke",rating:4.7,reviews:44,address:"Jl. Ciseke",website:""},
-  {name:"Pondok Candra",area:"Ciseke",rating:4.5,reviews:44,address:"Jl. Ciseke",website:""},
-  {name:"Kost GRIYA ALAM",area:"Cisaladah",rating:4.3,reviews:43,address:"Jl. Cisaladah",website:""},
-  {name:"Pondok Zaki (putri)",area:"Ciseke",rating:4.8,reviews:43,address:"Ciseke Besar, Gg. Masjid Al-Barokah No.213",website:""},
-  {name:"Kost Putri Handayani",area:"Jalan Raya",rating:4.4,reviews:42,address:"Jl. Raya Jatinangor No.139",website:""},
-  {name:"Pondok Hegar",area:"Sukawening",rating:4.5,reviews:41,address:"Sukawening",website:""},
-  {name:"Kost ameera 1",area:"Kp. Geulis",rating:4.7,reviews:40,address:"Jl. Kp. Geulis No.18",website:""},
-  {name:"Pondok Isna",area:"Ciseke",rating:4.0,reviews:40,address:"Jl. Ciseke No.62",website:""},
-  {name:"Gwenza Kost",area:"Caringin",rating:5.0,reviews:40,address:"Jl. Caringin No.49",website:""},
-  {name:"Kost Putri Pondok Cattleya",area:"Sayang",rating:4.7,reviews:37,address:"Sayang",website:""},
-  {name:"Kost Anugerah Putri Jatinangor",area:"Caringin",rating:4.4,reviews:37,address:"Jl. Caringin No.6",website:""},
-  {name:"Wisma Beriman",area:"Kp. Geulis",rating:4.6,reviews:37,address:"Jl. Kp. Geulis No.63",website:""},
-  {name:"Pondok Salsabila",area:"Jalan Raya",rating:4.4,reviews:37,address:"Jl. Raya Jatinangor No.96",website:""},
-  {name:"Kost Puri Cendana",area:"Jalan Raya",rating:4.4,reviews:36,address:"Jl. Itjang Djoedibarie No.27 E",website:""},
-  {name:"Hegarmanah Hills",area:"Cikuda",rating:4.3,reviews:36,address:"Jl. Nanggerang No.36A",website:""},
-  {name:"PONDOK MI JATINANGOR",area:"Sayang",rating:4.5,reviews:35,address:"Sayang",website:""},
-  {name:"Kost SAWERIGADING",area:"Caringin",rating:3.7,reviews:35,address:"Jl. Caringin No.23",website:""},
-  {name:"Pondok JM",area:"Sukawening",rating:4.5,reviews:34,address:"Sukawening",website:""},
-  {name:"The Aya Kost",area:"Sayang",rating:4.6,reviews:34,address:"Sayang",website:""},
-  {name:"Kost Griya Nawaloka",area:"Jalan Raya",rating:4.7,reviews:33,address:"Jl. Raya Jatinangor No.286",website:""},
-  {name:"Pondok Jogja",area:"Sukawening",rating:4.2,reviews:32,address:"Jl. Sukawening",website:""},
-  {name:"UP2'U KOST PUTERI",area:"Kp. Geulis",rating:4.0,reviews:32,address:"Jl. Kp. Geulis",website:""},
-  {name:"Wisma Vidya",area:"Caringin",rating:4.3,reviews:32,address:"Jl. Caringin No.8",website:""},
-  {name:"Bumi Indraprasta - Jatinangor",area:"Ciseke",rating:4.6,reviews:32,address:"Jl. Ciseke",website:""},
-  {name:"Permata Kost",area:"Cikuda",rating:4.6,reviews:31,address:"Jl. Cikuda No.277A",website:""},
-  {name:"Kost Putri Aksara",area:"Sukawening",rating:4.4,reviews:31,address:"Jl. Sukawening",website:""},
-  {name:"Wisma Regina",area:"Kp. Geulis",rating:4.4,reviews:31,address:"Jl. Kp. Geulis",website:""},
-  {name:"Kost Putri Puri Yasmin",area:"Puri",rating:4.4,reviews:30,address:"Puri",website:""},
-  {name:"Kost Sederhana I Unpad",area:"Cikuda",rating:5.0,reviews:30,address:"Jl. Cikuda No.12",website:""},
-  {name:"Wisma Bahari",area:"Jalan Raya",rating:4.7,reviews:30,address:"Cisempur",website:""},
-  {name:"Pondok Rangga",area:"Ciseke",rating:4.3,reviews:30,address:"Jalan Ciseke Besar No.109",website:""},
-  {name:"Pondok Wangi",area:"GKPN",rating:4.5,reviews:30,address:"Jl. GKPN No.27 A",website:""},
-  {name:"Villa Lengkob Kirpay",area:"Sayang",rating:3.9,reviews:29,address:"Sayang",website:""},
-  {name:"Pondok Cendekia",area:"Cikuda",rating:4.6,reviews:29,address:"Jl. Cikuda",website:""},
-  {name:"Kost Griya Purnama",area:"Cikuda",rating:5.0,reviews:28,address:"Cikeruh, Jatinangor",website:""},
-  {name:"Rumah Kost Lantana",area:"Jalan Raya",rating:4.6,reviews:28,address:"Jl. Itjang Djoedibarie No.52",website:""},
-  {name:"Pondok Asri",area:"Jalan Raya",rating:4.7,reviews:28,address:"Jl. Itjang Djoedibarie No.239",website:""},
-  {name:"Kost Bougenville",area:"Caringin",rating:4.5,reviews:28,address:"Jl. Caringin No.69",website:""},
-  {name:"Zahraan Dormitory",area:"Sayang",rating:5.0,reviews:27,address:"Jl. Kolonel Achmad Syam",website:""},
-  {name:"Kost Wisma Kartika",area:"Sayang",rating:4.6,reviews:26,address:"Jl. Kolonel Ahmad Syam no 71",website:""},
-  {name:"Pondok Ray",area:"Sayang",rating:4.5,reviews:26,address:"Jl. Kolonel Achmad Syam No.37",website:""},
-  {name:"Namira Kost",area:"Ciseke",rating:4.3,reviews:25,address:"Jl. Ciseke",website:""},
-  {name:"Kost Megara Zukhruf",area:"Puri",rating:4.8,reviews:25,address:"Jl. Puri Indah Jatinangor BLOK D5",website:""},
-  {name:"Pondok Atika",area:"Ciseke",rating:4.5,reviews:25,address:"Jl. Ciseke No.42",website:""},
-  {name:"Pondok Agape",area:"Ciawi",rating:4.5,reviews:24,address:"Gang Haji Nena",website:""},
-  {name:"Rumah Kost Genduk Geulis",area:"Puri",rating:4.7,reviews:24,address:"Jl. Puri Permai II Blok K3",website:""},
-  {name:"Kost Casa Elegante",area:"Ciseke",rating:4.3,reviews:24,address:"Jl. Ciseke No.162",website:""},
-  {name:"Pondok HARINA",area:"Sayang",rating:4.6,reviews:23,address:"Jl. Kolonel Achmad Syam No.284",website:""},
-  {name:"Kosan graha wgm",area:"Cikuda",rating:5.0,reviews:22,address:"Cileles Jatinangor",website:""},
-  {name:"KOST PAJAJARAN",area:"GKPN",rating:4.8,reviews:22,address:"Jl. GKPN No.52b",website:""},
-  {name:"Griya Aditya Kost",area:"Kp. Geulis",rating:5.0,reviews:21,address:"Jl. Kp. Geulis No.116",website:""},
-  {name:"Kost Putri Das Haus",area:"Caringin",rating:4.7,reviews:21,address:"Jl. Caringin Gg. Anggrek No.46",website:""},
-  {name:"Hoop Kost",area:"Sayang",rating:4.8,reviews:21,address:"Jl. Kolonel Achmad Syam No.40",website:""},
-  {name:"Kost Puri C4",area:"Puri",rating:4.8,reviews:21,address:"Komplek Puri Indah No.C4",website:""},
-  {name:"Kost Wisma Areta 2",area:"Caringin",rating:4.7,reviews:21,address:"Jl. Caringin Blok Cipari",website:""},
-  {name:"Kosan Berkah Jatinangor",area:"Sayang",rating:4.3,reviews:20,address:"Jl. Kolonel Achmad Syam Gang Haji Nena",website:""},
-  {name:"wisma gedong",area:"Ciseke",rating:4.4,reviews:20,address:"Jl. Ciseke",website:""},
-  {name:"Kost Putri AB Residence",area:"Caringin",rating:4.4,reviews:20,address:"Jl. Caringin No.21",website:""},
-  {name:"Pondok RE",area:"Sayang",rating:4.8,reviews:19,address:"Jl. Kolonel Achmad Syam No.76A",website:""},
-  
-  // ~96 Data Baru Tambahan
-  {name:"RamaraKost",area:"Cikuda",rating:4.6,reviews:19,address:"Jl. Cikuda",website:""},
-  {name:"Kost Putri Dee's House",area:"Caringin",rating:5.0,reviews:19,address:"Jl. Caringin Gg. Anggrek",website:""},
-  {name:"Kost PURI DEVI Jatinangor",area:"Sayang",rating:4.5,reviews:18,address:"Jl. Kolonel Achmad Syam No.52",website:""},
-  {name:"Kost Putri Hanabana",area:"Lainnya",rating:4.9,reviews:18,address:"Jatinangor",website:""},
-  {name:"Kost Pondok Al Kahfi",area:"Cikuda",rating:4.8,reviews:18,address:"Jl. Cikuda",website:""},
-  {name:"Kost Medina Home Living",area:"Lainnya",rating:4.9,reviews:18,address:"Jatinangor",website:""},
-  {name:"Kost Lighthouse",area:"Hegarmanah",rating:4.7,reviews:18,address:"Jatinangor",website:""},
-  {name:"Pondok Lestari",area:"Ciseke",rating:4.4,reviews:17,address:"Jl. Ciseke No.159",website:""},
-  {name:"Rumah Kost Cendana",area:"Lainnya",rating:4.0,reviews:17,address:"Jatinangor",website:""},
-  {name:"Satu Rumah Kost",area:"Cikuda",rating:4.4,reviews:17,address:"Jl. Cikuda No.20",website:""},
-  {name:"Kost Putra Griya Al-Fatih",area:"Puri",rating:4.8,reviews:17,address:"Perumahan Puri Indah K3 No.9",website:""},
-  {name:"Kost putri jatinangor 170",area:"Jalan Raya",rating:4.9,reviews:16,address:"Jl. Raya Jatinangor No.170",website:""},
-  {name:"Kosan Eshan Jatinangor",area:"Hegarmanah",rating:4.9,reviews:16,address:"Gang Mawar Hegarmanah",website:""},
-  {name:"Pondok Cabe",area:"Jalan Raya",rating:4.5,reviews:16,address:"Jl. Raya Jatinangor No.146",website:""},
-  {name:"Pondok Zahra Putri",area:"Jalan Raya",rating:4.9,reviews:16,address:"Jl. Raya Jatinangor No.21 B",website:""},
-  {name:"Pondok Denta",area:"Lainnya",rating:4.9,reviews:16,address:"Jatinangor",website:""},
-  {name:"Kosan Pondok Orange",area:"Lainnya",rating:4.4,reviews:16,address:"Jatinangor",website:""},
-  {name:"Chateau-Inn Kost",area:"Lainnya",rating:4.9,reviews:16,address:"Jl. Raya Bandung-Sumedang",website:""},
-  {name:"Kost Syarin",area:"GKPN",rating:4.9,reviews:16,address:"Jl. GKPN No.9",website:"http://instagram.com/syarinkost"},
-  {name:"KOSAN PUTRI M2",area:"Hegarmanah",rating:4.9,reviews:15,address:"Hegarmanah",website:""},
-  {name:"Pondok Asri Anugerah",area:"Ciseke",rating:4.5,reviews:15,address:"Jl. Ciseke No.245",website:""},
-  {name:"Kost Syar'i Edelweis",area:"Cikuda",rating:4.7,reviews:15,address:"Jl. Cikuda No.16",website:""},
-  {name:"Kosan Barokah",area:"Hegarmanah",rating:4.3,reviews:15,address:"Hegarmanah",website:""},
-  {name:"Pondok Pine House Putri",area:"Kp. Geulis",rating:4.8,reviews:15,address:"Jl. Kp. Geulis No.115",website:""},
-  {name:"Kost Pondok Hijau",area:"GKPN",rating:4.1,reviews:15,address:"Jatinangor",website:""},
-  {name:"Kost Pondokan Asri",area:"Lainnya",rating:4.8,reviews:15,address:"Jl. Itjang Djoedibarie",website:""},
-  {name:"Kost Putri Korpri",area:"Lainnya",rating:4.9,reviews:14,address:"Perum Korpri Indah Blok. A",website:""},
-  {name:"Wisma sejahtera",area:"Lainnya",rating:4.9,reviews:14,address:"Jatinangor",website:""},
-  {name:"Pondok Amanda",area:"Caringin",rating:4.9,reviews:14,address:"Jl. Caringin Gang Dahlia No.15",website:""},
-  {name:"Kost Putri SEGAR",area:"Jalan Raya",rating:5.0,reviews:14,address:"Jl. Raya Jatinangor No.146",website:""},
-  {name:"Kost Imah Amih",area:"Lainnya",rating:4.9,reviews:14,address:"Jatinangor",website:""},
-  {name:"Kost Anggrina 2",area:"Hegarmanah",rating:4.6,reviews:14,address:"Hegarmanah No.32A",website:""},
-  {name:"Hegarmanah Quarter",area:"Lainnya",rating:4.4,reviews:14,address:"Jl. Mekarasih No.01",website:""},
-  {name:"KOST ASSYIFA / BU MIRNA",area:"Puri",rating:5.0,reviews:14,address:"Perum Puri Indah Jalan Puri Permai VI",website:""},
-  {name:"Rumah kost Mama",area:"Jalan Raya",rating:4.4,reviews:14,address:"Perumahan Janati Park",website:""},
-  {name:"Pondok Permata",area:"GKPN",rating:4.1,reviews:14,address:"Jl. GKPN No.80B",website:""},
-  {name:"Kost Ta Caringin",area:"Caringin",rating:4.8,reviews:13,address:"Perum. Caringin Regency 2",website:""},
-  {name:"Kost Pondok Putri Haji Muchtar",area:"Ciseke",rating:4.8,reviews:13,address:"Jl. Tembus Ciseke No.45",website:""},
-  {name:"Yellow Lily Jatinangor",area:"Sayang",rating:4.7,reviews:13,address:"Jl. Kolonel Achmad Syam",website:"http://instagram.com/kostyellowlily"},
-  {name:"Kost Griya Ainnunnisa",area:"Sukawening",rating:5.0,reviews:13,address:"Jl. Sukawening",website:""},
-  {name:"Kost Sukhoi",area:"Lainnya",rating:4.8,reviews:13,address:"Jl. Neglasari",website:""},
-  {name:"Kost Putri Fathmi",area:"Caringin",rating:5.0,reviews:13,address:"Jl. Caringin No.18A",website:""},
-  {name:"Wisma Nagoya 1",area:"Cisaladah",rating:4.9,reviews:12,address:"Jl. Cisaladah",website:""},
-  {name:"Kost Blessing",area:"Caringin",rating:4.0,reviews:12,address:"Jl. Caringin No.49",website:""},
-  {name:"Pondok Green Castle",area:"Lainnya",rating:5.0,reviews:12,address:"Jatinangor",website:""},
-  {name:"Pondok Anonim",area:"Jalan Raya",rating:4.4,reviews:12,address:"Jl. Ir. Soekarno Gg. Mawar",website:""},
-  {name:"Kost Griya Diva",area:"Lainnya",rating:4.8,reviews:12,address:"Jatinangor",website:""},
-  {name:"Kost Pondok Erita",area:"Lainnya",rating:4.9,reviews:12,address:"Jatinangor",website:""},
-  {name:"PONDOK PUTRI ARUNI",area:"Lainnya",rating:4.9,reviews:12,address:"Jl. Itjang Djoedibarie",website:""},
-  {name:"Kost GW House",area:"Caringin",rating:4.9,reviews:12,address:"Jl. Caringin No.84",website:""},
-  {name:"Kost Bunda",area:"Caringin",rating:4.8,reviews:12,address:"Jl. Caringin",website:""},
-  {name:"WIsma Cendana",area:"GKPN",rating:4.4,reviews:12,address:"Jl. GKPN No.27",website:""},
-  {name:"Wisma Nagoya 2",area:"Cikuda",rating:4.5,reviews:11,address:"Jl. Cikuda No.9",website:""},
-  {name:"Pondok Jati",area:"Cikuda",rating:4.7,reviews:11,address:"Cikuda Nanggerang No.6",website:""},
-  {name:"Kost Tigapuluh",area:"Puri",rating:3.7,reviews:11,address:"Jalan Puri Permai VI Blok A30",website:""},
-  {name:"Kost Pak Ayot",area:"Lainnya",rating:4.8,reviews:11,address:"Jatinangor",website:""},
-  {name:"Pondok Dedi Kusnandar",area:"Lainnya",rating:4.3,reviews:11,address:"Ciseke Kecil",website:""},
-  {name:"Wisma Khairunnisa",area:"Lainnya",rating:4.5,reviews:11,address:"Jatinangor",website:""},
-  {name:"Pondok Puri Tiga Dara",area:"Hegarmanah",rating:4.2,reviews:10,address:"Hegarmanah No.3",website:""},
-  {name:"KOST-AN IBU EUIS",area:"Ciseke",rating:4.4,reviews:10,address:"Jl. Ciseke No.1",website:""},
-  {name:"Ma Maison UNPAD",area:"Lainnya",rating:5.0,reviews:10,address:"Jatinangor",website:""},
-  {name:"ALMEERA HOUSE",area:"Lainnya",rating:4.8,reviews:10,address:"Jatinangor",website:""},
-  {name:"Wisma Lokapala",area:"Lainnya",rating:4.0,reviews:10,address:"Jatinangor",website:""},
-  {name:"Kost Pondok Griya Roby",area:"Ciseke",rating:4.5,reviews:10,address:"Jl. Ciseke",website:""},
-  {name:"Pondok Kartika 1",area:"Lainnya",rating:5.0,reviews:10,address:"Jatinangor",website:""},
-  {name:"Kost Bumi Campernik",area:"Ciseke",rating:5.0,reviews:10,address:"Jl. Ciseke No.246",website:""},
-  {name:"Pondok Kusuma",area:"Lainnya",rating:5.0,reviews:10,address:"Gg. Mawar 2",website:""},
-  {name:"Kost Rumah Eyang",area:"Puri",rating:4.9,reviews:10,address:"Puri Indah Jatinangor No.B1-15",website:""},
-  {name:"Puri Aditya Kost",area:"Puri",rating:5.0,reviews:9,address:"Jl. Kolonel Achmad Syam No.5",website:""},
-  {name:"Pondok Reni",area:"Ciseke",rating:4.8,reviews:9,address:"Jl. Ciseke no 84",website:""},
-  {name:"Kost Putra ImahKita",area:"Hegarmanah",rating:5.0,reviews:9,address:"Jl. Cisaladah",website:""},
-  {name:"KOST PUTRA BUANA INDAH",area:"Sayang",rating:4.6,reviews:9,address:"Jl. Kolonel Achmad Syam No.151",website:""},
-  {name:"Kost D'Cattleya",area:"Sayang",rating:4.8,reviews:9,address:"Jl. Kolonel Achmad Syam No.49a",website:""},
-  {name:"Pondok Resti",area:"Ciseke",rating:4.6,reviews:9,address:"Jl. Ciseke No.245",website:""},
-  {name:"Kost Jelita",area:"Ciseke",rating:4.8,reviews:9,address:"Jl. Ciseke",website:""},
-  {name:"WARDHANI KOST PUTRI",area:"Caringin",rating:4.8,reviews:9,address:"Jl. Caringin No.16",website:""},
-  {name:"KOS_ PA ENGKOS",area:"Ciseke",rating:4.8,reviews:9,address:"Jl. Ciseke No.111",website:""},
-  {name:"Dyana kost",area:"Caringin",rating:5.0,reviews:9,address:"Jl. Caringin Gg. Anggrek",website:""},
-  {name:"Pondok Annisa",area:"Ciseke",rating:5.0,reviews:9,address:"Jl. Ciseke",website:""},
-  {name:"Kost Putri Pondok Ayra",area:"Ciseke",rating:5.0,reviews:8,address:"Jalan Ciseke Besar No 228",website:""},
-  {name:"Kost Muslimah Kautsar",area:"Sayang",rating:4.5,reviews:8,address:"Jl. Kol Achmad Syam No.2",website:""},
-  {name:"JACOPO Kost",area:"Jalan Raya",rating:5.0,reviews:8,address:"Jl. Raya Jatinangor",website:""},
-  {name:"Granada Kost",area:"Puri",rating:5.0,reviews:8,address:"Jalan Puri Cendikia No.2",website:""},
-  {name:"Kost Millennium",area:"Sukawening",rating:4.9,reviews:8,address:"Sukawening",website:""},
-  {name:"ERZA KOST",area:"Lainnya",rating:5.0,reviews:7,address:"Cileles",website:""},
-  {name:"Kost Pondok Bunda Rama",area:"Lainnya",rating:4.9,reviews:7,address:"Jatinangor",website:""},
-  {name:"Rumah Kost",area:"Lainnya",rating:5.0,reviews:6,address:"Kp Citanggulun",website:""},
-  {name:"Kosan pria pondok citra 86",area:"Ciseke",rating:5.0,reviews:6,address:"Jl. Ciseke No.257",website:""},
-  {name:"Ratu Pesona",area:"Cikuda",rating:4.8,reviews:6,address:"Jl. Cikuda No.16",website:""},
-  {name:"Kosan Makuyung",area:"Lainnya",rating:3.3,reviews:6,address:"Makuyung",website:""},
-  {name:"Kos putri gendis geulis",area:"Lainnya",rating:5.0,reviews:6,address:"Jl. Letda Lukito No.121",website:""},
-  {name:"Pondokan Rizky Kostan",area:"Lainnya",rating:4.8,reviews:6,address:"Gg. H.Zakaria No.2",website:""},
-  {name:"Rumah Kost Andhary",area:"Lainnya",rating:4.7,reviews:6,address:"Jatinangor",website:""},
-  {name:"Griya Murti",area:"Cikuda",rating:5.0,reviews:5,address:"Cikuda Nanggerang No.6",website:""},
-  {name:"Pondok Adento",area:"Ciseke",rating:4.6,reviews:5,address:"Jl.Ciseke Besar",website:""},
-  {name:"Pondok Putri Jawara",area:"Jalan Raya",rating:4.6,reviews:5,address:"Jl. Raya Jatinangor No.181B",website:""},
-  {name:"Cendana Kost",area:"Lainnya",rating:4.2,reviews:5,address:"Jalan Raya",website:""},
-  {name:"Mawar kost putri",area:"Sukawening",rating:5.0,reviews:5,address:"Jl. Sukawening",website:""},
-  {name:"Kosan Ajoy",area:"Lainnya",rating:5.0,reviews:5,address:"Jalan Kp. Persib",website:""},
-  {name:"Kosan ibu Tintin",area:"Lainnya",rating:4.0,reviews:5,address:"kampung Warung Kalde",website:""},
-  {name:"Casa De Fiore",area:"Cikuda",rating:4.2,reviews:5,address:"Jl. Cikuda No.9",website:"http://instagram.com/casa.de.fiore"}
+    {name:"Casa de Aminda",area:"Jalan Raya",rating:4.2,reviews:532,address:"Jl. Ir. Soekarno No.309",website:"https://amindahotel.com/"},
+    {name:"Pondok Abah uni 1 & 2 jatinangor",area:"Ciawi",rating:5.0,reviews:227,address:"Ciawi Gg haji nena",website:""},
+    {name:"KOST PURI TORINA Jatinangor",area:"Cikuda",rating:4.5,reviews:197,address:"Jl. Cikuda No.16",website:"http://puritorina.com/"},
+    {name:"Bumi Kartika Asri",area:"Caringin",rating:4.5,reviews:171,address:"Jl. Caringin No.20",website:"http://www.bumikartikaasri.com/"},
+    {name:"Wisma Tri Arga",area:"GKPN",rating:4.3,reviews:154,address:"Jl. GKPN No.80 A",website:""},
+    {name:"Wisma Boulevard 1",area:"Caringin",rating:4.3,reviews:137,address:"Jl. Caringin No.69A",website:""},
+    {name:"Aparkost HMG & GANESHA Tower Caringin",area:"Caringin",rating:4.3,reviews:136,address:"Jl. Caringin",website:""},
+    {name:"Nuansa Indah Kost",area:"Lainnya",rating:4.9,reviews:134,address:"Jl. Letda Lukito No.19",website:""},
+    {name:"Rumah Kost Bumi Sadang",area:"GKPN",rating:4.8,reviews:108,address:"Jl. GKPN No.38",website:""},
+    {name:"Wisma Arkey",area:"Caringin",rating:4.5,reviews:103,address:"Jl. Caringin",website:""},
+    {name:"Pondok Raditya",area:"Ciseke",rating:4.3,reviews:98,address:"Jl. Ciseke No.189",website:""},
+    {name:"Bunga Mas Kost",area:"Jalan Raya",rating:4.2,reviews:92,address:"Jl. Raya Jatinangor No.220",website:""},
+    {name:"KosAnggrek",area:"Sayang",rating:4.6,reviews:79,address:"Jl. Kolonel Achmad Syam",website:""},
+    {name:"Wisma Jayalaras Jatinangor Kos Putra",area:"GKPN",rating:4.5,reviews:79,address:"Jl. GKPN No.34",website:""},
+    {name:"Pondok Dara 1",area:"Jalan Raya",rating:4.4,reviews:78,address:"Jl. Raya Jatinangor No.94",website:""},
+    {name:"Wisma Jatinangor 3",area:"Puri",rating:4.4,reviews:76,address:"Perum Puri Indah No.25 Blok B1",website:""},
+    {name:"Permata Kost",area:"Sukawening",rating:4.3,reviews:72,address:"Jl. Sukawening",website:""},
+    {name:"Kost Green House Jatinangor",area:"Hegarmanah",rating:4.4,reviews:69,address:"Hegarmanah",website:""},
+    {name:"Pondok Djati",area:"GKPN",rating:4.5,reviews:69,address:"Jl. GKPN",website:""},
+    {name:"Pondok Sakinah 2",area:"Ciseke",rating:4.1,reviews:69,address:"Jl. Ciseke",website:""},
+    {name:"Kost Flosse House Jatinangor",area:"Puri",rating:4.4,reviews:69,address:"Jl. Puri Asri IV, Blok C5/2-6",website:""},
+    {name:"Anabela",area:"GKPN",rating:4.3,reviews:69,address:"Jl. GKPN",website:""},
+    {name:"Pondok Vandani",area:"Lainnya",rating:4.0,reviews:66,address:"Jl. Cipacing",website:""},
+    {name:"Casa Mia Kost Exclusive Jatinangor",area:"Sayang",rating:4.5,reviews:65,address:"Jl. Kolonel Achmad Syam No.192",website:""},
+    {name:"Kosan Jatinangor Asri",area:"Lainnya",rating:4.2,reviews:64,address:"Jatinangor",website:""},
+    {name:"Pondok Kayu",area:"Sayang",rating:4.6,reviews:64,address:"Jl. Kolonel Achmad Syam No.48 A",website:""},
+    {name:"Kost The Hill Jatinangor",area:"Lainnya",rating:5.0,reviews:57,address:"Jl. Pesantren No.17",website:""},
+    {name:"Kost Putri Jatinangor",area:"Puri",rating:4.5,reviews:56,address:"Jl. Kolonel Achmad Syam No.Blok A",website:""},
+    {name:"KOST PRIMADINA",area:"Sukawening",rating:4.8,reviews:56,address:"Jl. Sukawening",website:""},
+    {name:"Rumah Khairaa Kost",area:"Cikuda",rating:4.8,reviews:56,address:"Jl. Letda Lukito Dsn.Cikuda No.18",website:""},
+    {name:"Kost D'xtrie",area:"Lainnya",rating:4.4,reviews:54,address:"Jatinangor",website:""},
+    {name:"Pondok Angsana",area:"Ciseke",rating:4.1,reviews:50,address:"Jl. Ciseke No.324",website:""},
+    {name:"Elysia Residence",area:"Caringin",rating:5.0,reviews:50,address:"Jl. Caringin Garden Residence No.4 Kav. A",website:""},
+    {name:"KOST Al Ruwais",area:"Sayang",rating:4.8,reviews:49,address:"Jl. Kolonel Achmad Syam No.98",website:""},
+    {name:"Griya Santosa",area:"Cikuda",rating:4.5,reviews:46,address:"Jl. Cikuda",website:""},
+    {name:"Kost Putri Wisma Mayangsari UNPAD",area:"Lainnya",rating:4.5,reviews:46,address:"Jl. Itjang Djoedibarie",website:""},
+    {name:"Pondok Sehat Jatinangor",area:"Lainnya",rating:5.0,reviews:46,address:"Jl. KH Hasan Mustopha",website:""},
+    {name:"Rumah Kacapiring",area:"Lainnya",rating:4.7,reviews:46,address:"Cikeruh",website:""},
+    {name:"J-Kost",area:"Puri",rating:4.5,reviews:46,address:"Jl. Puri Indah Jatinangor No.17 Blok C6",website:""},
+    {name:"Pondok Orange",area:"Sayang",rating:4.4,reviews:44,address:"Jl. Kolonel Achmad Syam No.46",website:""},
+    {name:"Pondok Putri Barokah 232",area:"Ciseke",rating:4.7,reviews:44,address:"Jl. Ciseke",website:""},
+    {name:"Pondok Candra",area:"Ciseke",rating:4.5,reviews:44,address:"Jl. Ciseke",website:""},
+    {name:"Kost GRIYA ALAM",area:"Cisaladah",rating:4.3,reviews:43,address:"Jl. Cisaladah",website:""},
+    {name:"Pondok Zaki (putri)",area:"Ciseke",rating:4.8,reviews:43,address:"Ciseke Besar, Gg. Masjid Al-Barokah No.213",website:""},
+    {name:"Kost Putri Handayani Jatinangor",area:"Jalan Raya",rating:4.4,reviews:42,address:"Jl. Raya Jatinangor No.139",website:""},
+    {name:"Pondok Hegar",area:"Lainnya",rating:4.5,reviews:41,address:"Jatinangor",website:""},
+    {name:"Kost ameera 1",area:"Kp. Geulis",rating:4.7,reviews:40,address:"Jl. Kp. Geulis No.18",website:""},
+    {name:"Pondok Isna",area:"Ciseke",rating:4.0,reviews:40,address:"Jl. Ciseke No.62",website:""},
+    {name:"Gwenza Kost",area:"Caringin",rating:5.0,reviews:40,address:"Jl. Caringin No.49",website:""},
+    {name:"Kost Putri Pondok Cattleya",area:"Lainnya",rating:4.7,reviews:37,address:"Jatinangor",website:""},
+    {name:"Kost Anugerah Putri Jatinangor",area:"Caringin",rating:4.4,reviews:37,address:"Jl. Caringin No.6",website:""},
+    {name:"Wisma Beriman",area:"Kp. Geulis",rating:4.6,reviews:37,address:"Jl. Kp. Geulis No.63",website:""},
+    {name:"Pondok Salsabila",area:"Jalan Raya",rating:4.4,reviews:37,address:"Jl. Raya Jatinangor No.96",website:""},
+    {name:"Kost Puri Cendana",area:"Lainnya",rating:4.4,reviews:36,address:"Jl. Itjang Djoedibarie No.27 E",website:""},
+    {name:"Hegarmanah Hills",area:"Cikuda",rating:4.3,reviews:36,address:"Jl. Nanggerang No.36A",website:""},
+    {name:"PONDOK MI JATINANGOR",area:"Lainnya",rating:4.5,reviews:35,address:"Jatinangor",website:""},
+    {name:"Kost SAWERIGADING Jatinangor",area:"Caringin",rating:3.7,reviews:35,address:"Jl. Caringin No.23",website:""},
+    {name:"Pondok JM",area:"Lainnya",rating:4.5,reviews:34,address:"Jatinangor",website:""},
+    {name:"The Aya Kost",area:"Lainnya",rating:4.6,reviews:34,address:"Jatinangor",website:""},
+    {name:"Kost Griya Nawaloka",area:"Jalan Raya",rating:4.7,reviews:33,address:"Jl. Raya Jatinangor No.286",website:""},
+    {name:"Pondok Jogja",area:"Sukawening",rating:4.2,reviews:32,address:"Jl. Sukawening",website:""},
+    {name:"UP2'U KOST PUTERI",area:"Kp. Geulis",rating:4.0,reviews:32,address:"Jl. Kp. Geulis",website:""},
+    {name:"Wisma Vidya",area:"Caringin",rating:4.3,reviews:32,address:"Jl. Caringin No.8",website:""},
+    {name:"Bumi Indraprasta - Jatinangor",area:"Ciseke",rating:4.6,reviews:32,address:"Jl. Ciseke",website:""},
+    {name:"Permata Kost",area:"Cikuda",rating:4.6,reviews:31,address:"Jl. Cikuda No.277A",website:""},
+    {name:"Kost Putri Jatinangor - Aksara",area:"Sukawening",rating:4.4,reviews:31,address:"Jl. Sukawening",website:""},
+    {name:"Wisma Regina",area:"Kp. Geulis",rating:4.4,reviews:31,address:"Jl. Kp. Geulis",website:""},
+    {name:"Kosan di jatinangor (wisma regina)",area:"Kp. Geulis",rating:4.4,reviews:31,address:"Jl. Kp. Geulis",website:""},
+    {name:"Kost Putri Puri Yasmin",area:"Lainnya",rating:4.4,reviews:30,address:"Jatinangor",website:""},
+    {name:"Kost Sederhana I Unpad",area:"Cikuda",rating:5.0,reviews:30,address:"Jl. Cikuda No.12",website:""},
+    {name:"Wisma Bahari",area:"Lainnya",rating:4.7,reviews:30,address:"Cisempur",website:""},
+    {name:"Pondok Rangga",area:"Ciseke",rating:4.3,reviews:30,address:"Jalan Ciseke Besar No.109",website:""},
+    {name:"Pondok Wangi",area:"GKPN",rating:4.5,reviews:30,address:"Jl. GKPN No.27 A",website:""},
+    {name:"Villa Lengkob Kirpay",area:"Lainnya",rating:3.9,reviews:29,address:"Jatinangor",website:""},
+    {name:"Pondok Cendekia Jatinangor",area:"Cikuda",rating:4.6,reviews:29,address:"Jl. Cikuda",website:""},
+    {name:"Kost Griya Purnama Jatinangor",area:"Lainnya",rating:5.0,reviews:28,address:"Cikeruh",website:""},
+    {name:"Rumah Kost Lantana Jatinangor",area:"Lainnya",rating:4.6,reviews:28,address:"Jl. Itjang Djoedibarie No.52",website:""},
+    {name:"Pondok Asri",area:"Lainnya",rating:4.7,reviews:28,address:"Jl. Itjang Djoedibarie No.239",website:""},
+    {name:"Kost Bougenville Jatinangor",area:"Caringin",rating:4.5,reviews:28,address:"Jl. Caringin No.69",website:""},
+    {name:"Zahraan Dormitory",area:"Sayang",rating:5.0,reviews:27,address:"Jl. Kolonel Achmad Syam Gang Haji Nena",website:""},
+    {name:"Kost Wisma Kartika 1996",area:"Sayang",rating:4.6,reviews:26,address:"Jl.Kolonel Ahmad Syam no 71",website:""},
+    {name:"Pondok Ray",area:"Sayang",rating:4.5,reviews:26,address:"Jl. Kolonel Achmad Syam No.37",website:""},
+    {name:"Namira Kost",area:"Ciseke",rating:4.3,reviews:25,address:"Jl. Ciseke",website:""},
+    {name:"Kost Megara Zukhruf",area:"Puri",rating:4.8,reviews:25,address:"Jl. Puri Indah Jatinangor BLOK D5",website:""},
+    {name:"Pondok Atika",area:"Ciseke",rating:4.5,reviews:25,address:"Jl. Ciseke No.42",website:""},
+    {name:"Pondok Agape - Kost Murah",area:"Lainnya",rating:4.5,reviews:24,address:"Gang Haji Nena",website:""},
+    {name:"Rumah Kost Genduk Geulis",area:"Puri",rating:4.7,reviews:24,address:"Jl. Puri Permai II Blok K3",website:""},
+    {name:"Kost Casa Elegante",area:"Ciseke",rating:4.3,reviews:24,address:"Jl. Ciseke No.162",website:""},
+    {name:"Pondok HARINA",area:"Sayang",rating:4.6,reviews:23,address:"Jl. Kolonel Achmad Syam No.284",website:""},
+    {name:"Kosan graha wgm",area:"Lainnya",rating:5.0,reviews:22,address:"Cileles Jatinangor",website:""},
+    {name:"KOST PAJAJARAN",area:"GKPN",rating:4.8,reviews:22,address:"Jl. GKPN No.52b",website:""},
+    {name:"Griya Aditya Jatinangor (Kost Putra)",area:"Kp. Geulis",rating:5.0,reviews:21,address:"Jl. Kp. Geulis No.116",website:""},
+    {name:"Kost Putri Das Haus - Jatinangor",area:"Caringin",rating:4.7,reviews:21,address:"Jl. Caringin Gg. Anggrek No.46",website:""},
+    {name:"Hoop Kost",area:"Sayang",rating:4.8,reviews:21,address:"Jl. Kolonel Achmad Syam No.40",website:""},
+    {name:"Kost Puri C4",area:"Puri",rating:4.8,reviews:21,address:"Jl. Puri Indah Jatinangor No.C4",website:""},
+    {name:"Kost Wisma Areta 2 Jatinangor",area:"Caringin",rating:4.7,reviews:21,address:"Jl. Caringin Blok Cipari",website:""},
+    {name:"Kosan Berkah Jatinangor",area:"Sayang",rating:4.3,reviews:20,address:"Jl. Kolonel Achmad Syam Gang Haji Nena",website:""},
+    {name:"wisma gedong",area:"Ciseke",rating:4.4,reviews:20,address:"Jl. Ciseke",website:""},
+    {name:"Kost Putri AB Residence",area:"Caringin",rating:4.4,reviews:20,address:"Jl. Caringin No.21",website:""},
+    {name:"Pondok RE",area:"Sayang",rating:4.8,reviews:19,address:"Jl. Kolonel Achmad Syam No.76A",website:""},
+    {name:"RamaraKost (Kost Putra)",area:"Cikuda",rating:4.6,reviews:19,address:"Jl. Cikuda",website:""},
+    {name:"Kost Putri Dee's House",area:"Caringin",rating:5.0,reviews:19,address:"Jl. Caringin Gg. Anggrek",website:""},
+    {name:"Kost PURI DEVI Jatinangor",area:"Sayang",rating:4.5,reviews:18,address:"Jl. Kolonel Achmad Syam No.52",website:""},
+    {name:"Kost Putri Hanabana",area:"Lainnya",rating:4.9,reviews:18,address:"Jatinangor",website:""},
+    {name:"Kost Pondok Al Kahfi Jatinangor",area:"Cikuda",rating:4.8,reviews:18,address:"Jl. Cikuda",website:""},
+    {name:"Kost Medina Home Living",area:"Lainnya",rating:4.9,reviews:18,address:"Jatinangor",website:""},
+    {name:"Kost Lighthouse Jatinangor Hegarmanah",area:"Lainnya",rating:4.7,reviews:18,address:"Jatinangor",website:""},
+    {name:"Pondok Lestari Jatinangor",area:"Ciseke",rating:4.4,reviews:17,address:"Jl. Ciseke No.159",website:""},
+    {name:"Rumah Kost Cendana",area:"Lainnya",rating:4.0,reviews:17,address:"Jatinangor",website:""},
+    {name:"Satu Rumah Kost",area:"Cikuda",rating:4.4,reviews:17,address:"Jl. Cikuda No.20",website:""},
+    {name:"Kost Putra Griya Al-Fatih",area:"Puri",rating:4.8,reviews:17,address:"Perumahan Puri Indah K3 No.9",website:""},
+    {name:"Kost putri jatinangor 170",area:"Jalan Raya",rating:4.9,reviews:16,address:"Jl. Raya Jatinangor No.170",website:""},
+    {name:"Kosan Eshan Jatinangor Bandung",area:"Hegarmanah",rating:4.9,reviews:16,address:"Hegarmanah",website:""},
+    {name:"Pondok Cabe jatinangor",area:"Jalan Raya",rating:4.5,reviews:16,address:"Jl. Raya Jatinangor No.146",website:""},
+    {name:"Pondok Zahra Putri",area:"Jalan Raya",rating:4.9,reviews:16,address:"Jl. Raya Jatinangor No.21 B",website:""},
+    {name:"Pondok Denta",area:"Lainnya",rating:4.9,reviews:16,address:"Jatinangor",website:""},
+    {name:"Kosan Pondok Orange Ciseke",area:"Lainnya",rating:4.4,reviews:16,address:"Jatinangor",website:""},
+    {name:"Chateau-Inn Kost",area:"Lainnya",rating:4.9,reviews:16,address:"Jl. Raya Bandung-Sumedang",website:""},
+    {name:"Kost Syarin",area:"GKPN",rating:4.9,reviews:16,address:"Jl. GKPN No.9",website:""},
+    {name:"KOSAN PUTRI M2",area:"Hegarmanah",rating:4.9,reviews:15,address:"Hegarmanah",website:""},
+    {name:"Pondok Asri Anugerah Jatinangor",area:"Ciseke",rating:4.5,reviews:15,address:"Jl. Ciseke No.245",website:""},
+    {name:"Kost Syar'i Edelweis",area:"Cikuda",rating:4.7,reviews:15,address:"Jl. Cikuda No.16",website:""},
+    {name:"Kosan Barokah Hegarmanah",area:"Hegarmanah",rating:4.3,reviews:15,address:"Hegarmanah",website:""},
+    {name:"Pondok Pine House Putri",area:"Kp. Geulis",rating:4.8,reviews:15,address:"Jl. Kp. Geulis No.115",website:""},
+    {name:"Kost Pondok Hijau GKPN",area:"Lainnya",rating:4.1,reviews:15,address:"Jatinangor",website:""},
+    {name:"Kost Pondokan Asri",area:"Lainnya",rating:4.8,reviews:15,address:"Jl. Itjang Djoedibarie",website:""},
+    {name:"Kost Putri Korpri Jatinangor",area:"Lainnya",rating:4.9,reviews:14,address:"Perum Korpri Indah Blok. A",website:""},
+    {name:"Wisma sejahtera kosan terbaik",area:"Lainnya",rating:4.9,reviews:14,address:"Jatinangor",website:""},
+    {name:"Pondok Amanda Caringin",area:"Caringin",rating:4.9,reviews:14,address:"Jl. Caringin Gang Dahlia No.15",website:""},
+    {name:"Kost Putri SEGAR Jatinangor",area:"Jalan Raya",rating:5.0,reviews:14,address:"Jl. Raya Jatinangor No.146",website:""},
+    {name:"Kost Imah Amih",area:"Lainnya",rating:4.9,reviews:14,address:"Jatinangor",website:""},
+    {name:"Kost Anggrina 2 Hegarmanah",area:"Hegarmanah",rating:4.6,reviews:14,address:"Hegarmanah No.32A",website:""},
+    {name:"Hegarmanah Quarter",area:"Lainnya",rating:4.4,reviews:14,address:"Jl. Mekarasih No.01",website:""},
+    {name:"KOST ASSYIFA/KOST BU MIRNA",area:"Puri",rating:5.0,reviews:14,address:"Jalan Puri Permai VI",website:""},
+    {name:"Rumah kost Mama",area:"Jalan Raya",rating:4.4,reviews:14,address:"Perumahan Janati Park",website:""},
+    {name:"Pondok Permata",area:"GKPN",rating:4.1,reviews:14,address:"Jl. GKPN No.80B",website:""},
+    {name:"Kost Ta Caringin (khusus Putra)",area:"Caringin",rating:4.8,reviews:13,address:"Perum. Caringin Regency 2",website:""},
+    {name:"Kost Pondok Putri Haji Muchtar",area:"Ciseke",rating:4.8,reviews:13,address:"Jl. Tembus Ciseke No.45",website:""},
+    {name:"Yellow Lily Jatinangor",area:"Sayang",rating:4.7,reviews:13,address:"Jl. Kolonel Achmad Syam",website:""},
+    {name:"Kost Griya Ainnunnisa Jatinangor",area:"Sukawening",rating:5.0,reviews:13,address:"Jl. Sukawening",website:""},
+    {name:"Kost Sukhoi",area:"Lainnya",rating:4.8,reviews:13,address:"Jl. Neglasari",website:""},
+    {name:"Kost Putri Fathmi",area:"Caringin",rating:5.0,reviews:13,address:"Jl. Caringin No.18A",website:""},
+    {name:"Kost dekat Unpad Wisma Nagoya 1",area:"Cisaladah",rating:4.9,reviews:12,address:"Jl. Cisaladah",website:""},
+    {name:"Kost Blessing Jatinangor",area:"Caringin",rating:4.0,reviews:12,address:"Jl. Caringin No.49",website:""},
+    {name:"Pondok Green Castle",area:"Lainnya",rating:5.0,reviews:12,address:"Jatinangor",website:""},
+    {name:"Pondok Anonim",area:"Jalan Raya",rating:4.4,reviews:12,address:"Jl. Ir. Soekarno Gg. Mawar",website:""},
+    {name:"Kost Griya Diva",area:"Lainnya",rating:4.8,reviews:12,address:"Jatinangor",website:""},
+    {name:"Kost Pondok Erita Jatinangor",area:"Lainnya",rating:4.9,reviews:12,address:"Jatinangor",website:""},
+    {name:"PONDOK PUTRI ARUNI",area:"Lainnya",rating:4.9,reviews:12,address:"Jl. Itjang Djoedibarie",website:""},
+    {name:"Kost GW House",area:"Caringin",rating:4.9,reviews:12,address:"Jl. Caringin No.84",website:""},
+    {name:"Kost Bunda",area:"Caringin",rating:4.8,reviews:12,address:"Jl. Caringin",website:""},
+    {name:"WIsma Cendana",area:"GKPN",rating:4.4,reviews:12,address:"Jl. GKPN No.27",website:""},
+    {name:"Kost dekat Unpad Wisma Nagoya 2",area:"Cikuda",rating:4.5,reviews:11,address:"Jl. Cikuda No.9",website:""},
+    {name:"Pondok Jati",area:"Cikuda",rating:4.7,reviews:11,address:"Cikuda Nanggerang No.6",website:""},
+    {name:"Kost Tigapuluh",area:"Puri",rating:3.7,reviews:11,address:"Jalan Puri Permai VI Blok A30",website:""},
+    {name:"Kost Pak Ayot",area:"Lainnya",rating:4.8,reviews:11,address:"Jatinangor",website:""},
+    {name:"Pondok Dedi Kusnandar Ciseke",area:"Lainnya",rating:4.3,reviews:11,address:"Ciseke Kecil",website:""},
+    {name:"Wisma Khairunnisa",area:"Lainnya",rating:4.5,reviews:11,address:"Jatinangor",website:""},
+    {name:"Pondok Puri Tiga Dara",area:"Hegarmanah",rating:4.2,reviews:10,address:"Hegarmanah No.3",website:""},
+    {name:"KOST-AN IBU EUIS",area:"Ciseke",rating:4.4,reviews:10,address:"Jl. Ciseke No.1",website:""},
+    {name:"Ma Maison UNPAD Jatinangor",area:"Lainnya",rating:5.0,reviews:10,address:"Jatinangor",website:""},
+    {name:"ALMEERA HOUSE - KOST",area:"Lainnya",rating:4.8,reviews:10,address:"Jatinangor",website:""},
+    {name:"Wisma Lokapala",area:"Lainnya",rating:4.0,reviews:10,address:"Jatinangor",website:""},
+    {name:"Kost Pondok Griya Roby",area:"Ciseke",rating:4.5,reviews:10,address:"Jl. Ciseke",website:""},
+    {name:"Pondok Kartika 1",area:"Lainnya",rating:5.0,reviews:10,address:"Jatinangor",website:""},
+    {name:"Kost Bumi Campernik",area:"Ciseke",rating:5.0,reviews:10,address:"Jl. Ciseke No.246",website:""},
+    {name:"Kost Putri Pondok Kusuma",area:"Lainnya",rating:5.0,reviews:10,address:"Gg. Mawar 2",website:""},
+    {name:"Kost Rumah Eyang",area:"Puri",rating:4.9,reviews:10,address:"Puri Indah Jatinangor No.B1-15",website:""},
+    {name:"Puri Aditya Jatinangor",area:"Puri",rating:5.0,reviews:9,address:"Jl. Kolonel Achmad Syam No.5",website:""},
+    {name:"Pondok Reni Jatinangor",area:"Ciseke",rating:4.8,reviews:9,address:"Jl. Ciseke no 84",website:""},
+    {name:"Kost Putra ImahKita",area:"Hegarmanah",rating:5.0,reviews:9,address:"Jl. Cisaladah",website:""},
+    {name:"KOST PUTRA BUANA INDAH",area:"Sayang",rating:4.6,reviews:9,address:"Jl. Kolonel Achmad Syam No.151",website:""},
+    {name:"Kost D'Cattleya",area:"Sayang",rating:4.8,reviews:9,address:"Jl. Kolonel Achmad Syam No.49a",website:""},
+    {name:"Pondok Resti",area:"Ciseke",rating:4.6,reviews:9,address:"Jl. Ciseke No.245",website:""},
+    {name:"Kost Jelita",area:"Ciseke",rating:4.8,reviews:9,address:"Jl. Ciseke",website:""},
+    {name:"WARDHANI KOST PUTRI",area:"Caringin",rating:4.8,reviews:9,address:"Jl. Caringin No.16",website:""},
+    {name:"KOS_ PA ENGKOS",area:"Ciseke",rating:4.8,reviews:9,address:"Jl. Ciseke No.111",website:""},
+    {name:"Dyana kost",area:"Caringin",rating:5.0,reviews:9,address:"Jl. Caringin Gg. Anggrek",website:""},
+    {name:"Pondok Annisa",area:"Ciseke",rating:5.0,reviews:9,address:"Jl. Ciseke",website:""},
+    {name:"Kost Putri Pondok Ayra",area:"Ciseke",rating:5.0,reviews:8,address:"Jalan Ciseke Besar No 228",website:""},
+    {name:"Kost Muslimah (Kautsar)",area:"Sayang",rating:4.5,reviews:8,address:"Jl. Kol Achmad Syam No.2",website:""},
+    {name:"JACOPO Kost",area:"Jalan Raya",rating:5.0,reviews:8,address:"Jl. Raya Jatinangor",website:""},
+    {name:"Granada Kost Jatinangor",area:"Puri",rating:5.0,reviews:8,address:"Jalan Puri Cendikia No.2",website:""},
+    {name:"Kost Millennium Hegarmanah",area:"Sukawening",rating:4.9,reviews:8,address:"Sukawening",website:""},
+    {name:"ERZA KOST JATINANGOR",area:"Lainnya",rating:5.0,reviews:7,address:"Cileles",website:""},
+    {name:"Kost Pondok Bunda Rama",area:"Lainnya",rating:4.9,reviews:7,address:"Jatinangor",website:""},
+    {name:"Rumah Kost Citanggulun",area:"Lainnya",rating:5.0,reviews:6,address:"Kp Citanggulun",website:""},
+    {name:"Kosan pondok citra 86",area:"Ciseke",rating:5.0,reviews:6,address:"Jl. Ciseke No.257",website:""},
+    {name:"Ratu Pesona (Kost Putri)",area:"Cikuda",rating:4.8,reviews:6,address:"Jl. Cikuda No.16",website:""},
+    {name:"Kosan Makuyung",area:"Lainnya",rating:3.3,reviews:6,address:"Makuyung",website:""},
+    {name:"Kos putri gendis geulis",area:"Lainnya",rating:5.0,reviews:6,address:"Jl. Letda Lukito No.121",website:""},
+    {name:"Pondokan Rizky Kostan",area:"Lainnya",rating:4.8,reviews:6,address:"Gg. H.Zakaria No.2",website:""},
+    {name:"Rumah Kost Andhary",area:"Lainnya",rating:4.7,reviews:6,address:"Jatinangor",website:""},
+    {name:"Griya Murti",area:"Cikuda",rating:5.0,reviews:5,address:"Cikuda Nanggerang No.6",website:""},
+    {name:"Pondok Adento",area:"Ciseke",rating:4.6,reviews:5,address:"Jl. Ciseke Besar",website:""},
+    {name:"Pondok Putri Jawara",area:"Jalan Raya",rating:4.6,reviews:5,address:"Jl. Raya Jatinangor No.181B",website:""},
+    {name:"Cendana Kost Jatinangor",area:"Lainnya",rating:4.2,reviews:5,address:"Jalan Raya",website:""},
+    {name:"Mawar kost putri",area:"Sukawening",rating:5.0,reviews:5,address:"Jl. Sukawening",website:""},
+    {name:"Kosan Ajoy",area:"Lainnya",rating:5.0,reviews:5,address:"Jalan Kp. Persib",website:""},
+    {name:"Kosan ibu Tintin",area:"Lainnya",rating:4.0,reviews:5,address:"Warung Kalde",website:""},
+    {name:"Casa De Fiore",area:"Cikuda",rating:4.2,reviews:5,address:"Jl. Cikuda No.9",website:""},
+    
+    // --- 84 Data Terakhir ---
+    {name:"Rumah Kost Teh Dewi",area:"Puri",rating:4.2,reviews:5,address:"Belakang hotel Puri khatulistiwa, Bojong eureun",website:""},
+    {name:"Sepohon Kost",area:"Sayang",rating:4.8,reviews:5,address:"Jl. Kolonel Achmad Syam No.150",website:""},
+    {name:"Kost M3",area:"Ciawi",rating:5.0,reviews:5,address:"Gg H Nena, Ds Ciawi Wetan",website:""},
+    {name:"Pondok Hj. Agung Ciseke",area:"Ciseke",rating:5.0,reviews:5,address:"Jl. Ciseke",website:""},
+    {name:"Pondok Ahmad",area:"Ciseke",rating:4.2,reviews:5,address:"Jl. Ciseke",website:""},
+    {name:"Wisma Bidara",area:"Lainnya",rating:5.0,reviews:5,address:"Jatinangor RT.02/RW.04",website:""},
+    {name:"Sedia Kamar Kost",area:"Ciseke",rating:4.6,reviews:5,address:"Jl. Ciseke No.118",website:""},
+    {name:"Kost Permata Caringin",area:"Caringin",rating:4.0,reviews:5,address:"Jl. Caringin No.45",website:""},
+    {name:"Kost kenari",area:"Lainnya",rating:5.0,reviews:5,address:"Jatinangor",website:""},
+    {name:"Pondok putri monica",area:"Ciseke",rating:5.0,reviews:5,address:"Jl. Ciseke No.277",website:""},
+    {name:"Pondok Cemara",area:"GKPN",rating:4.6,reviews:5,address:"Jl. GKPN No.15",website:""},
+    {name:"Pondok Zahara",area:"Lainnya",rating:4.5,reviews:4,address:"Jatinangor",website:""},
+    {name:"Kost Harmoni (Putra)",area:"Puri",rating:5.0,reviews:4,address:"Komplek Puri Indah No.28",website:""},
+    {name:"Kanayakan Kost Putri",area:"Caringin",rating:5.0,reviews:4,address:"Kavling PLN Jl. Caringin No.26",website:""},
+    {name:"Puri Indah",area:"Puri",rating:5.0,reviews:4,address:"Komplek Puri Indah, Blk. D4",website:""},
+    {name:"Pondok Geulis Ciseke",area:"Ciseke",rating:5.0,reviews:4,address:"Jl. Ciseke No.226",website:""},
+    {name:"Kost Putri Avisha Ciseke",area:"Lainnya",rating:5.0,reviews:4,address:"Gang hj nena",website:""},
+    {name:"SHE KOST",area:"Caringin",rating:4.5,reviews:4,address:"Jl. Caringin No.67",website:""},
+    {name:"Pondok putri isaku iki",area:"Ciseke",rating:4.5,reviews:4,address:"Jln ciseke besar no 231",website:""},
+    {name:"Kost Madina House",area:"Cibeusi",rating:5.0,reviews:4,address:"Jl. Raya Jatinangor Gg. Sanjaya",website:""},
+    {name:"Kost putri MMD",area:"Hegarmanah",rating:5.0,reviews:3,address:"Hegarmanah",website:""},
+    {name:"Kost Mitra Baru",area:"Jalan Raya",rating:3.7,reviews:3,address:"Jl. Raya Jatinangor No.208A",website:""},
+    {name:"Pondok Bandung",area:"Ciseke",rating:5.0,reviews:3,address:"Jl. Ciseke",website:""},
+    {name:"Kost Putri Hj Dedeh",area:"Jalan Raya",rating:5.0,reviews:3,address:"Jl. Raya Jatinangor No.224",website:""},
+    {name:"Kost Jatinangor",area:"Lainnya",rating:3.0,reviews:3,address:"Jatinangor",website:""},
+    {name:"Granada Kost Panoramic",area:"Lainnya",rating:5.0,reviews:3,address:"Sukanegla",website:""},
+    {name:"Penginapan kosan",area:"Hegarmanah",rating:4.0,reviews:3,address:"Hegarmanah No.55",website:""},
+    {name:"Pondok Cemerlang",area:"Ciseke",rating:4.7,reviews:3,address:"Jl. Ciseke",website:""},
+    {name:"Kost Baru",area:"Lainnya",rating:5.0,reviews:3,address:"Jatinangor",website:""},
+    {name:"Kost Pak Kokon Konirin",area:"Lainnya",rating:5.0,reviews:3,address:"Jl. Cipajaran",website:""},
+    {name:"Kost Rumah Pallet",area:"Ciseke",rating:5.0,reviews:3,address:"Jl. Ciseke No.96",website:""},
+    {name:"Kost ABG",area:"Ciseke",rating:5.0,reviews:3,address:"Jl. Ciseke",website:""},
+    {name:"Kost Putri Yonita 1",area:"Lainnya",rating:3.5,reviews:2,address:"Jatinangor",website:""},
+    {name:"Pondok Gina",area:"Jalan Raya",rating:5.0,reviews:2,address:"Jl. Raya Jatinangor No.162",website:""},
+    {name:"PONDOK AN-NUR",area:"Jalan Raya",rating:5.0,reviews:2,address:"Jl. Ir. Soekarno No.123",website:""},
+    {name:"Comfy Place Kost",area:"Puri",rating:5.0,reviews:2,address:"Jl. Puri Indah Jatinangor",website:""},
+    {name:"Kosan Ibu Ijah",area:"Jalan Raya",rating:5.0,reviews:2,address:"Jl. Raya Jatinangor No.265",website:""},
+    {name:"Kosan Alpha Base",area:"Cikuda",rating:4.5,reviews:2,address:"Jl. Cikuda No.261",website:""},
+    {name:"Kost Putra Pondok Zardien",area:"Lainnya",rating:5.0,reviews:2,address:"Jl. Cinenggang",website:""},
+    {name:"Kost Putra Zamzam",area:"Puri",rating:5.0,reviews:2,address:"Jl. Puri Indah Jatinangor No.B5",website:""},
+    {name:"Kosan Pak Jajang",area:"Hegarmanah",rating:4.0,reviews:2,address:"Jl. Hegarmanah No. 120",website:""},
+    {name:"Pondok Shanum Ciseke",area:"Ciseke",rating:5.0,reviews:2,address:"Jl. Ciseke",website:""},
+    {name:"Kost Rumah Tulip",area:"Lainnya",rating:5.0,reviews:2,address:"jl sayang No.38",website:""},
+    {name:"Pondok Kost Jatira",area:"Lainnya",rating:5.0,reviews:2,address:"Jl. Cibungur",website:""},
+    {name:"Kost Pondok Indah",area:"Ciseke",rating:5.0,reviews:2,address:"Jl. Ciseke No.277",website:""},
+    {name:"Griya Bintang",area:"Lainnya",rating:4.5,reviews:2,address:"Jl.Caringn Gg. Dahlia No.14",website:""},
+    {name:"Kost Putri Aruna",area:"Caringin",rating:5.0,reviews:2,address:"Kavling PLN Jl. Caringin No.37",website:""},
+    {name:"Kost Puri Hegar",area:"Puri",rating:5.0,reviews:2,address:"Perumahan Puri Indah. Blok B24",website:""},
+    {name:"Kosan perhari Jatinangor",area:"Jalan Raya",rating:4.0,reviews:1,address:"Jl. Raya Jatinangor No.142",website:""},
+    {name:"Kosan Tins",area:"Lainnya",rating:4.0,reviews:1,address:"Jalan Raya",website:""},
+    {name:"Kosan caringin",area:"Lainnya",rating:4.0,reviews:1,address:"Jatinangor",website:""},
+    {name:"Kos putra jatinangor",area:"Puri",rating:5.0,reviews:1,address:"Puri Indah No.1 Blok K2",website:""},
+    {name:"Kosan nyaman aman",area:"Jalan Raya",rating:5.0,reviews:1,address:"Jl. Raya Jatinangor No.145",website:""},
+    {name:"Kost Unpad Jatinangor",area:"Lainnya",rating:5.0,reviews:1,address:"Jl. Cinenggang",website:""},
+    {name:"Pondok Diaz Jatinangor",area:"Jalan Raya",rating:5.0,reviews:1,address:"Jl. Raya Jatinangor",website:""},
+    {name:"Pondok Garini Jatinangor",area:"Sukawening",rating:5.0,reviews:1,address:"Jl. Sukawening No.3",website:""},
+    {name:"Kost Putra Kautsar",area:"Lainnya",rating:5.0,reviews:1,address:"Janati Park Residence Blok D",website:""},
+    {name:"Pondok Tiga Putra",area:"Jalan Raya",rating:4.0,reviews:1,address:"Jl. Raya Jatinangor No.220",website:""},
+    {name:"Kosan putri anggel",area:"Lainnya",rating:5.0,reviews:1,address:"Cipasir",website:""},
+    {name:"Kos kosan Hegarmanah",area:"Hegarmanah",rating:5.0,reviews:1,address:"Dusun Hegarmanah no.29",website:""},
+    {name:"KOSAN DOA EMA",area:"Jalan Raya",rating:5.0,reviews:1,address:"Jl. Raya Jatinangor No.317",website:""},
+    {name:"Kosan Ibu Hj. lilies",area:"Lainnya",rating:5.0,reviews:1,address:"Jl. Nasional 5 No.270",website:""},
+    {name:"Kost Singgahsini Hauraa",area:"Cikuda",rating:5.0,reviews:1,address:"Jl. Cikuda No.37",website:""},
+    {name:"Kost Griya Anon Hegarmanah",area:"Hegarmanah",rating:5.0,reviews:1,address:"Hegarmanah",website:""},
+    {name:"Kost Blessing Love",area:"Caringin",rating:5.0,reviews:1,address:"Jl. Caringin No.17",website:""},
+    {name:"Kost Ramon",area:"Lainnya",rating:5.0,reviews:1,address:"Jatinangor",website:""},
+    {name:"Kost ibu dian",area:"Lainnya",rating:5.0,reviews:1,address:"Jatinangor",website:""},
+    {name:"Cozy Kost Caringin",area:"Caringin",rating:5.0,reviews:1,address:"Jl. Caringin",website:""},
+    {name:"Kost Putri Evelyn",area:"Caringin",rating:5.0,reviews:1,address:"Kavling PLN, No 10 A, Jl. Caringin",website:""},
+    {name:"Kost Blessing VIP",area:"Caringin",rating:5.0,reviews:1,address:"Jl. Caringin No.57",website:""},
+    {name:"Breeze Kost",area:"GKPN",rating:4.0,reviews:1,address:"Jl. GKPN No.30",website:""},
+    {name:"Kost Putra Puri Indah K2",area:"Puri",rating:0,reviews:0,address:"Jl. Kolonel Achmad Syam No.1",website:""},
+    {name:"Kosan panjul",area:"Lainnya",rating:0,reviews:0,address:"Jl. Raya Cirebon - Bandung",website:""},
+    {name:"Oena House",area:"Lainnya",rating:0,reviews:0,address:"Jl. Raya Cirebon - Bandung No.315a",website:""},
+    {name:"Kosan putri Ambla dewi",area:"Puri",rating:0,reviews:0,address:"Komplek Puri Cendekia, Blk. I",website:""},
+    {name:"Kosan yordann",area:"GKPN",rating:0,reviews:0,address:"Jl. GKPN No.17",website:""},
+    {name:"Kosan hj eje",area:"Lainnya",rating:0,reviews:0,address:"Jatinangor",website:""},
+    {name:"Kosan BPK DIKI",area:"Lainnya",rating:0,reviews:0,address:"Dusun cijengkol",website:""},
+    {name:"Kost bu lala ciseke kecil",area:"Lainnya",rating:0,reviews:0,address:"Ciseke",website:""},
+    {name:"Kost Hegarmanah Unpad",area:"Lainnya",rating:0,reviews:0,address:"Jalan Raya",website:""},
+    {name:"Info kost jatinangor",area:"Lainnya",rating:0,reviews:0,address:"Jatinangor",website:""},
+    {name:"Kost Bumi Sayang",area:"Lainnya",rating:0,reviews:0,address:"Perumahan Korpri Indah Kav. 2",website:""}
 ];
 
 const kosanData = rawKosanData.map(k => {
