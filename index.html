@@ -80,135 +80,61 @@
     --shadow: 0 4px 6px -1px rgba(2, 132, 199, 0.15), 0 2px 4px -1px rgba(2, 132, 199, 0.1);
   }
 
-  /* MOBILE APP CONTAINER */
   body { 
-    font-family: var(--font); 
-    background-color: var(--bg-outer); 
-    color: var(--text); 
-    display: flex;
-    justify-content: center;
-    min-height: 100vh;
+    font-family: var(--font); background-color: var(--bg-outer); 
+    color: var(--text); display: flex; justify-content: center; min-height: 100vh;
   }
   
   .app-container {
-    width: 100%;
-    max-width: 480px;
-    background-color: var(--bg-3);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    box-shadow: 0 0 20px rgba(0,0,0,0.5);
-    overflow-x: hidden;
+    width: 100%; max-width: 480px; background-color: var(--bg-3);
+    min-height: 100vh; display: flex; flex-direction: column; position: relative;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5); overflow-x: hidden;
   }
 
-  /* HEADER & STICKY TOP */
   .header {
-    background-color: var(--bg);
-    padding: 20px 20px 15px;
-    border-bottom: 1px solid var(--border);
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    background-color: var(--bg); padding: 20px 20px 15px; border-bottom: 1px solid var(--border);
+    position: sticky; top: 0; z-index: 100;
   }
 
-  .header-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 16px;
-  }
+  .header-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
 
   .title-area h1 {
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--text);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 4px;
+    font-size: 20px; font-weight: 700; color: var(--text); display: flex;
+    align-items: center; gap: 8px; margin-bottom: 4px;
   }
   .title-area h1 i { color: var(--accent); font-size: 24px; }
   .title-area p { font-size: 12px; color: var(--text-2); }
 
-  /* SEARCH INPUT */
-  .search-box {
-    position: relative;
-    margin-bottom: 16px;
-  }
+  .search-box { position: relative; margin-bottom: 16px; }
   .search-box i {
     position: absolute; left: 16px; top: 50%; transform: translateY(-50%);
     font-size: 18px; color: var(--text-3);
   }
   .search-box input {
-    width: 100%; padding: 14px 16px 14px 44px;
-    background: var(--bg-2); border: 1px solid var(--border);
-    border-radius: var(--radius); font-family: var(--font); font-size: 14px;
-    color: var(--text); outline: none; transition: all 0.2s;
+    width: 100%; padding: 14px 16px 14px 44px; background: var(--bg-2); border: 1px solid var(--border);
+    border-radius: var(--radius); font-family: var(--font); font-size: 14px; color: var(--text); outline: none; transition: all 0.2s;
   }
   .search-box input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(56, 139, 253, 0.15); }
 
-  /* HORIZONTAL SCROLL CHIPS */
-  .scroll-x-container {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  .chip-row {
-    display: flex;
-    gap: 8px;
-    overflow-x: auto;
-    padding-bottom: 4px;
-    -ms-overflow-style: none; scrollbar-width: none;
-  }
+  .scroll-x-container { display: flex; flex-direction: column; gap: 12px; }
+  .chip-row { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; -ms-overflow-style: none; scrollbar-width: none; }
   .chip-row::-webkit-scrollbar { display: none; }
   
   .chip {
-    padding: 8px 16px;
-    border-radius: 20px;
-    background: var(--bg-2);
-    border: 1px solid var(--border);
-    color: var(--text-2);
-    font-size: 13px;
-    font-weight: 500;
-    white-space: nowrap;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    transition: all 0.2s;
+    padding: 8px 16px; border-radius: 20px; background: var(--bg-2); border: 1px solid var(--border);
+    color: var(--text-2); font-size: 13px; font-weight: 500; white-space: nowrap; cursor: pointer;
+    display: flex; align-items: center; gap: 6px; transition: all 0.2s;
   }
   .chip:active { transform: scale(0.96); }
-  .chip.active {
-    background: var(--accent); color: #fff; border-color: var(--accent);
-  }
+  .chip.active { background: var(--accent); color: #fff; border-color: var(--accent); }
   .chip-theme { font-size: 12px; padding: 6px 12px; }
 
-  /* MAIN CONTENT AREA */
-  .main-content {
-    padding: 16px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
+  .main-content { padding: 16px; flex: 1; display: flex; flex-direction: column; gap: 12px; }
+  .stats-text { font-size: 13px; color: var(--text-2); margin-bottom: 4px; font-weight: 500; }
 
-  .stats-text {
-    font-size: 13px;
-    color: var(--text-2);
-    margin-bottom: 4px;
-    font-weight: 500;
-  }
-
-  /* CARD STYLE (MOBILE FOCUSED) */
   .card {
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 16px;
-    box-shadow: var(--shadow);
-    transition: all 0.2s;
-    overflow: hidden;
+    background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 16px; box-shadow: var(--shadow); transition: all 0.2s; overflow: hidden;
   }
   .card:active { transform: scale(0.98); }
 
@@ -216,10 +142,8 @@
   .card-title { font-size: 16px; font-weight: 700; color: var(--text); line-height: 1.3; margin-bottom: 6px; }
   
   .card-rating {
-    display: flex; align-items: center; gap: 4px;
-    background: rgba(245, 158, 11, 0.1); color: #F59E0B;
-    padding: 4px 8px; border-radius: 8px; font-size: 13px; font-weight: 700;
-    flex-shrink: 0; border: 1px solid rgba(245, 158, 11, 0.2);
+    display: flex; align-items: center; gap: 4px; background: rgba(245, 158, 11, 0.1); color: #F59E0B;
+    padding: 4px 8px; border-radius: 8px; font-size: 13px; font-weight: 700; flex-shrink: 0; border: 1px solid rgba(245, 158, 11, 0.2);
   }
   
   .card-meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
@@ -233,34 +157,22 @@
   .card-address { font-size: 13px; color: var(--text-3); display: flex; gap: 6px; align-items: flex-start; line-height: 1.4; }
   .card-address i { font-size: 16px; color: var(--text-3); flex-shrink: 0; margin-top: 2px;}
 
-  /* EXPANDED DETAILS */
   .card-detail {
-    display: none;
-    margin-top: 16px;
-    padding-top: 16px;
-    border-top: 1px dashed var(--border);
-    animation: fadeIn 0.3s ease;
+    display: none; margin-top: 16px; padding-top: 16px; border-top: 1px dashed var(--border); animation: fadeIn 0.3s ease;
   }
   .card.open .card-detail { display: block; }
   @keyframes fadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
 
-  /* CONTACT BUTTONS */
   .btn-action {
-    display: flex; align-items: center; justify-content: center; gap: 8px;
-    width: 100%; padding: 12px; border-radius: var(--radius-sm);
-    font-size: 14px; font-weight: 600; text-decoration: none;
-    cursor: pointer; border: none; transition: all 0.2s; margin-bottom: 8px;
-    font-family: var(--font);
+    display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 12px;
+    border-radius: var(--radius-sm); font-size: 14px; font-weight: 600; text-decoration: none; cursor: pointer;
+    border: none; transition: all 0.2s; margin-bottom: 8px; font-family: var(--font);
   }
   .btn-maps { background: #4285F4; color: white; }
   .btn-maps:active { background: #3367D6; }
   .btn-web { background: var(--bg-2); color: var(--accent); border: 1px solid var(--border-2); }
   
-  .toggle-text {
-    text-align: center; font-size: 12px; color: var(--accent); 
-    font-weight: 600; margin-top: 12px;
-  }
-
+  .toggle-text { text-align: center; font-size: 12px; color: var(--accent); font-weight: 600; margin-top: 12px; }
   .empty-state { text-align: center; padding: 40px 20px; color: var(--text-3); }
   .empty-state i { font-size: 48px; margin-bottom: 12px; opacity: 0.5;}
   .empty-state h3 { font-size: 16px; font-weight: 600; margin-bottom: 4px; color: var(--text);}
@@ -271,7 +183,6 @@
 <body>
 
 <div class="app-container">
-  
   <header class="header">
     <div class="header-top">
       <div class="title-area">
@@ -292,7 +203,6 @@
 
     <div class="scroll-x-container">
       <div class="chip-row" id="areaChips"></div>
-      
       <div class="chip-row">
         <div class="chip active" id="chipRating" onclick="toggleRating()">⭐ Semua Rating</div>
         <div class="chip" id="chipSort" onclick="toggleSort()"><i class="ti ti-arrows-sort"></i> Ulasan Terbanyak</div>
@@ -304,7 +214,6 @@
     <div class="stats-text" id="statsText">Memuat data...</div>
     <div id="cardContainer" style="display: flex; flex-direction: column; gap: 12px;"></div>
   </main>
-
 </div>
 
 <script>
@@ -322,29 +231,30 @@ function setTheme(themeName) {
 const savedTheme = localStorage.getItem('kosan-theme-mobile') || 'dark';
 setTheme(savedTheme);
 
-// --- 2. DATA KOSAN (100 Data CSV) ---
+// --- 2. DATA KOSAN (Hampir 200 Data dari CSV) ---
 const AREA_COLORS = {
   "Ciseke": "#E11D48", "Caringin": "#2563EB", "GKPN": "#16A34A",
   "Jalan Raya": "#D97706", "Puri": "#7C3AED", "Cikuda": "#0891B2", 
   "Sayang": "#C026D3", "Hegarmanah": "#059669", "Sukawening": "#0D9488",
-  "Kp. Geulis": "#F43F5E", "Ciawi": "#8B5CF6", "Cisaladah": "#EA580C"
+  "Kp. Geulis": "#F43F5E", "Ciawi": "#8B5CF6", "Cisaladah": "#EA580C", "Lainnya": "#64748B"
 };
 
 const rawKosanData = [
+  // 100 Data Pertama (Sebelumnya)
   {name:"Casa de Aminda",area:"Jalan Raya",rating:4.2,reviews:532,address:"Jl. Ir. Soekarno No.309",website:"https://amindahotel.com/"},
   {name:"Pondok Abah uni 1 & 2 jatinangor",area:"Ciawi",rating:5.0,reviews:227,address:"Ciawi Gg haji nena",website:""},
   {name:"KOST PURI TORINA Jatinangor",area:"Cikuda",rating:4.5,reviews:197,address:"Jl. Cikuda No.16",website:"http://puritorina.com/"},
   {name:"Bumi Kartika Asri",area:"Caringin",rating:4.5,reviews:171,address:"Jl. Caringin No.20",website:"http://www.bumikartikaasri.com/"},
   {name:"Wisma Tri Arga",area:"GKPN",rating:4.3,reviews:154,address:"Jl. GKPN No.80 A",website:""},
   {name:"Wisma Boulevard 1",area:"Caringin",rating:4.3,reviews:137,address:"Jl. Caringin No.69A",website:""},
-  {name:"Aparkost HMG & GANESHA Tower Caringin",area:"Caringin",rating:4.3,reviews:136,address:"Jl. Caringin",website:""},
+  {name:"Aparkost HMG & GANESHA Tower",area:"Caringin",rating:4.3,reviews:136,address:"Jl. Caringin",website:""},
   {name:"Nuansa Indah Kost",area:"Sayang",rating:4.9,reviews:134,address:"Jl. Letda Lukito No.19",website:""},
   {name:"Rumah Kost Bumi Sadang",area:"GKPN",rating:4.8,reviews:108,address:"Jl. GKPN No.38",website:""},
   {name:"Wisma Arkey",area:"Caringin",rating:4.5,reviews:103,address:"Jl. Caringin",website:""},
   {name:"Pondok Raditya",area:"Ciseke",rating:4.3,reviews:98,address:"Jl. Ciseke No.189",website:""},
   {name:"Bunga Mas Kost",area:"Jalan Raya",rating:4.2,reviews:92,address:"Jl. Raya Jatinangor No.220",website:""},
   {name:"KosAnggrek",area:"Sayang",rating:4.6,reviews:79,address:"Jl. Kolonel Achmad Syam",website:""},
-  {name:"Wisma Jayalaras Jatinangor Kos Putra",area:"GKPN",rating:4.5,reviews:79,address:"Jl. GKPN No.34",website:""},
+  {name:"Wisma Jayalaras Kos Putra",area:"GKPN",rating:4.5,reviews:79,address:"Jl. GKPN No.34",website:""},
   {name:"Pondok Dara 1",area:"Jalan Raya",rating:4.4,reviews:78,address:"Jl. Raya Jatinangor No.94",website:""},
   {name:"Wisma Jatinangor 3",area:"Puri",rating:4.4,reviews:76,address:"Perum Puri Indah No.25 Blok B1",website:""},
   {name:"Permata Kost",area:"Sukawening",rating:4.3,reviews:72,address:"Jl. Sukawening",website:""},
@@ -395,34 +305,33 @@ const rawKosanData = [
   {name:"UP2'U KOST PUTERI",area:"Kp. Geulis",rating:4.0,reviews:32,address:"Jl. Kp. Geulis",website:""},
   {name:"Wisma Vidya",area:"Caringin",rating:4.3,reviews:32,address:"Jl. Caringin No.8",website:""},
   {name:"Bumi Indraprasta - Jatinangor",area:"Ciseke",rating:4.6,reviews:32,address:"Jl. Ciseke",website:""},
-  {name:"Permata Kost - Student Accomodation",area:"Cikuda",rating:4.6,reviews:31,address:"Jl. Cikuda No.277A",website:""},
-  {name:"Kost Putri Jatinangor - Aksara",area:"Sukawening",rating:4.4,reviews:31,address:"Jl. Sukawening",website:""},
+  {name:"Permata Kost",area:"Cikuda",rating:4.6,reviews:31,address:"Jl. Cikuda No.277A",website:""},
+  {name:"Kost Putri Aksara",area:"Sukawening",rating:4.4,reviews:31,address:"Jl. Sukawening",website:""},
   {name:"Wisma Regina",area:"Kp. Geulis",rating:4.4,reviews:31,address:"Jl. Kp. Geulis",website:""},
-  {name:"Kosan di jatinangor (wisma regina)",area:"Kp. Geulis",rating:4.4,reviews:31,address:"Jl. Kp. Geulis",website:""},
   {name:"Kost Putri Puri Yasmin",area:"Puri",rating:4.4,reviews:30,address:"Puri",website:""},
   {name:"Kost Sederhana I Unpad",area:"Cikuda",rating:5.0,reviews:30,address:"Jl. Cikuda No.12",website:""},
   {name:"Wisma Bahari",area:"Jalan Raya",rating:4.7,reviews:30,address:"Cisempur",website:""},
   {name:"Pondok Rangga",area:"Ciseke",rating:4.3,reviews:30,address:"Jalan Ciseke Besar No.109",website:""},
   {name:"Pondok Wangi",area:"GKPN",rating:4.5,reviews:30,address:"Jl. GKPN No.27 A",website:""},
   {name:"Villa Lengkob Kirpay",area:"Sayang",rating:3.9,reviews:29,address:"Sayang",website:""},
-  {name:"Pondok Cendekia Jatinangor",area:"Cikuda",rating:4.6,reviews:29,address:"Jl. Cikuda",website:""},
-  {name:"Kost Griya Purnama Jatinangor",area:"Cikuda",rating:5.0,reviews:28,address:"Cikeruh, Jatinangor",website:""},
-  {name:"Rumah Kost Lantana Jatinangor",area:"Jalan Raya",rating:4.6,reviews:28,address:"Jl. Itjang Djoedibarie No.52",website:""},
+  {name:"Pondok Cendekia",area:"Cikuda",rating:4.6,reviews:29,address:"Jl. Cikuda",website:""},
+  {name:"Kost Griya Purnama",area:"Cikuda",rating:5.0,reviews:28,address:"Cikeruh, Jatinangor",website:""},
+  {name:"Rumah Kost Lantana",area:"Jalan Raya",rating:4.6,reviews:28,address:"Jl. Itjang Djoedibarie No.52",website:""},
   {name:"Pondok Asri",area:"Jalan Raya",rating:4.7,reviews:28,address:"Jl. Itjang Djoedibarie No.239",website:""},
-  {name:"Kost Bougenville Jatinangor",area:"Caringin",rating:4.5,reviews:28,address:"Jl. Caringin No.69",website:""},
+  {name:"Kost Bougenville",area:"Caringin",rating:4.5,reviews:28,address:"Jl. Caringin No.69",website:""},
   {name:"Zahraan Dormitory",area:"Sayang",rating:5.0,reviews:27,address:"Jl. Kolonel Achmad Syam",website:""},
-  {name:"Kost Wisma Kartika 1996",area:"Sayang",rating:4.6,reviews:26,address:"Jl. Kolonel Ahmad Syam no 71",website:""},
+  {name:"Kost Wisma Kartika",area:"Sayang",rating:4.6,reviews:26,address:"Jl. Kolonel Ahmad Syam no 71",website:""},
   {name:"Pondok Ray",area:"Sayang",rating:4.5,reviews:26,address:"Jl. Kolonel Achmad Syam No.37",website:""},
   {name:"Namira Kost",area:"Ciseke",rating:4.3,reviews:25,address:"Jl. Ciseke",website:""},
   {name:"Kost Megara Zukhruf",area:"Puri",rating:4.8,reviews:25,address:"Jl. Puri Indah Jatinangor BLOK D5",website:""},
   {name:"Pondok Atika",area:"Ciseke",rating:4.5,reviews:25,address:"Jl. Ciseke No.42",website:""},
-  {name:"Pondok Agape - Kost Murah",area:"Ciawi",rating:4.5,reviews:24,address:"Gang Haji Nena",website:""},
-  {name:"Rumah Kost Genduk Geulis",area:"Puri",rating:4.7,reviews:24,address:"Jl. Puri Permai II Blok K3 No.3 & 4",website:""},
+  {name:"Pondok Agape",area:"Ciawi",rating:4.5,reviews:24,address:"Gang Haji Nena",website:""},
+  {name:"Rumah Kost Genduk Geulis",area:"Puri",rating:4.7,reviews:24,address:"Jl. Puri Permai II Blok K3",website:""},
   {name:"Kost Casa Elegante",area:"Ciseke",rating:4.3,reviews:24,address:"Jl. Ciseke No.162",website:""},
   {name:"Pondok HARINA",area:"Sayang",rating:4.6,reviews:23,address:"Jl. Kolonel Achmad Syam No.284",website:""},
   {name:"Kosan graha wgm",area:"Cikuda",rating:5.0,reviews:22,address:"Cileles Jatinangor",website:""},
   {name:"KOST PAJAJARAN",area:"GKPN",rating:4.8,reviews:22,address:"Jl. GKPN No.52b",website:""},
-  {name:"Griya Aditya Jatinangor",area:"Kp. Geulis",rating:5.0,reviews:21,address:"Jl. Kp. Geulis No.116",website:""},
+  {name:"Griya Aditya Kost",area:"Kp. Geulis",rating:5.0,reviews:21,address:"Jl. Kp. Geulis No.116",website:""},
   {name:"Kost Putri Das Haus",area:"Caringin",rating:4.7,reviews:21,address:"Jl. Caringin Gg. Anggrek No.46",website:""},
   {name:"Hoop Kost",area:"Sayang",rating:4.8,reviews:21,address:"Jl. Kolonel Achmad Syam No.40",website:""},
   {name:"Kost Puri C4",area:"Puri",rating:4.8,reviews:21,address:"Komplek Puri Indah No.C4",website:""},
@@ -430,16 +339,119 @@ const rawKosanData = [
   {name:"Kosan Berkah Jatinangor",area:"Sayang",rating:4.3,reviews:20,address:"Jl. Kolonel Achmad Syam Gang Haji Nena",website:""},
   {name:"wisma gedong",area:"Ciseke",rating:4.4,reviews:20,address:"Jl. Ciseke",website:""},
   {name:"Kost Putri AB Residence",area:"Caringin",rating:4.4,reviews:20,address:"Jl. Caringin No.21",website:""},
-  {name:"Pondok RE",area:"Sayang",rating:4.8,reviews:19,address:"Jl. Kolonel Achmad Syam No.76A",website:""}
+  {name:"Pondok RE",area:"Sayang",rating:4.8,reviews:19,address:"Jl. Kolonel Achmad Syam No.76A",website:""},
+  
+  // ~96 Data Baru Tambahan
+  {name:"RamaraKost",area:"Cikuda",rating:4.6,reviews:19,address:"Jl. Cikuda",website:""},
+  {name:"Kost Putri Dee's House",area:"Caringin",rating:5.0,reviews:19,address:"Jl. Caringin Gg. Anggrek",website:""},
+  {name:"Kost PURI DEVI Jatinangor",area:"Sayang",rating:4.5,reviews:18,address:"Jl. Kolonel Achmad Syam No.52",website:""},
+  {name:"Kost Putri Hanabana",area:"Lainnya",rating:4.9,reviews:18,address:"Jatinangor",website:""},
+  {name:"Kost Pondok Al Kahfi",area:"Cikuda",rating:4.8,reviews:18,address:"Jl. Cikuda",website:""},
+  {name:"Kost Medina Home Living",area:"Lainnya",rating:4.9,reviews:18,address:"Jatinangor",website:""},
+  {name:"Kost Lighthouse",area:"Hegarmanah",rating:4.7,reviews:18,address:"Jatinangor",website:""},
+  {name:"Pondok Lestari",area:"Ciseke",rating:4.4,reviews:17,address:"Jl. Ciseke No.159",website:""},
+  {name:"Rumah Kost Cendana",area:"Lainnya",rating:4.0,reviews:17,address:"Jatinangor",website:""},
+  {name:"Satu Rumah Kost",area:"Cikuda",rating:4.4,reviews:17,address:"Jl. Cikuda No.20",website:""},
+  {name:"Kost Putra Griya Al-Fatih",area:"Puri",rating:4.8,reviews:17,address:"Perumahan Puri Indah K3 No.9",website:""},
+  {name:"Kost putri jatinangor 170",area:"Jalan Raya",rating:4.9,reviews:16,address:"Jl. Raya Jatinangor No.170",website:""},
+  {name:"Kosan Eshan Jatinangor",area:"Hegarmanah",rating:4.9,reviews:16,address:"Gang Mawar Hegarmanah",website:""},
+  {name:"Pondok Cabe",area:"Jalan Raya",rating:4.5,reviews:16,address:"Jl. Raya Jatinangor No.146",website:""},
+  {name:"Pondok Zahra Putri",area:"Jalan Raya",rating:4.9,reviews:16,address:"Jl. Raya Jatinangor No.21 B",website:""},
+  {name:"Pondok Denta",area:"Lainnya",rating:4.9,reviews:16,address:"Jatinangor",website:""},
+  {name:"Kosan Pondok Orange",area:"Lainnya",rating:4.4,reviews:16,address:"Jatinangor",website:""},
+  {name:"Chateau-Inn Kost",area:"Lainnya",rating:4.9,reviews:16,address:"Jl. Raya Bandung-Sumedang",website:""},
+  {name:"Kost Syarin",area:"GKPN",rating:4.9,reviews:16,address:"Jl. GKPN No.9",website:"http://instagram.com/syarinkost"},
+  {name:"KOSAN PUTRI M2",area:"Hegarmanah",rating:4.9,reviews:15,address:"Hegarmanah",website:""},
+  {name:"Pondok Asri Anugerah",area:"Ciseke",rating:4.5,reviews:15,address:"Jl. Ciseke No.245",website:""},
+  {name:"Kost Syar'i Edelweis",area:"Cikuda",rating:4.7,reviews:15,address:"Jl. Cikuda No.16",website:""},
+  {name:"Kosan Barokah",area:"Hegarmanah",rating:4.3,reviews:15,address:"Hegarmanah",website:""},
+  {name:"Pondok Pine House Putri",area:"Kp. Geulis",rating:4.8,reviews:15,address:"Jl. Kp. Geulis No.115",website:""},
+  {name:"Kost Pondok Hijau",area:"GKPN",rating:4.1,reviews:15,address:"Jatinangor",website:""},
+  {name:"Kost Pondokan Asri",area:"Lainnya",rating:4.8,reviews:15,address:"Jl. Itjang Djoedibarie",website:""},
+  {name:"Kost Putri Korpri",area:"Lainnya",rating:4.9,reviews:14,address:"Perum Korpri Indah Blok. A",website:""},
+  {name:"Wisma sejahtera",area:"Lainnya",rating:4.9,reviews:14,address:"Jatinangor",website:""},
+  {name:"Pondok Amanda",area:"Caringin",rating:4.9,reviews:14,address:"Jl. Caringin Gang Dahlia No.15",website:""},
+  {name:"Kost Putri SEGAR",area:"Jalan Raya",rating:5.0,reviews:14,address:"Jl. Raya Jatinangor No.146",website:""},
+  {name:"Kost Imah Amih",area:"Lainnya",rating:4.9,reviews:14,address:"Jatinangor",website:""},
+  {name:"Kost Anggrina 2",area:"Hegarmanah",rating:4.6,reviews:14,address:"Hegarmanah No.32A",website:""},
+  {name:"Hegarmanah Quarter",area:"Lainnya",rating:4.4,reviews:14,address:"Jl. Mekarasih No.01",website:""},
+  {name:"KOST ASSYIFA / BU MIRNA",area:"Puri",rating:5.0,reviews:14,address:"Perum Puri Indah Jalan Puri Permai VI",website:""},
+  {name:"Rumah kost Mama",area:"Jalan Raya",rating:4.4,reviews:14,address:"Perumahan Janati Park",website:""},
+  {name:"Pondok Permata",area:"GKPN",rating:4.1,reviews:14,address:"Jl. GKPN No.80B",website:""},
+  {name:"Kost Ta Caringin",area:"Caringin",rating:4.8,reviews:13,address:"Perum. Caringin Regency 2",website:""},
+  {name:"Kost Pondok Putri Haji Muchtar",area:"Ciseke",rating:4.8,reviews:13,address:"Jl. Tembus Ciseke No.45",website:""},
+  {name:"Yellow Lily Jatinangor",area:"Sayang",rating:4.7,reviews:13,address:"Jl. Kolonel Achmad Syam",website:"http://instagram.com/kostyellowlily"},
+  {name:"Kost Griya Ainnunnisa",area:"Sukawening",rating:5.0,reviews:13,address:"Jl. Sukawening",website:""},
+  {name:"Kost Sukhoi",area:"Lainnya",rating:4.8,reviews:13,address:"Jl. Neglasari",website:""},
+  {name:"Kost Putri Fathmi",area:"Caringin",rating:5.0,reviews:13,address:"Jl. Caringin No.18A",website:""},
+  {name:"Wisma Nagoya 1",area:"Cisaladah",rating:4.9,reviews:12,address:"Jl. Cisaladah",website:""},
+  {name:"Kost Blessing",area:"Caringin",rating:4.0,reviews:12,address:"Jl. Caringin No.49",website:""},
+  {name:"Pondok Green Castle",area:"Lainnya",rating:5.0,reviews:12,address:"Jatinangor",website:""},
+  {name:"Pondok Anonim",area:"Jalan Raya",rating:4.4,reviews:12,address:"Jl. Ir. Soekarno Gg. Mawar",website:""},
+  {name:"Kost Griya Diva",area:"Lainnya",rating:4.8,reviews:12,address:"Jatinangor",website:""},
+  {name:"Kost Pondok Erita",area:"Lainnya",rating:4.9,reviews:12,address:"Jatinangor",website:""},
+  {name:"PONDOK PUTRI ARUNI",area:"Lainnya",rating:4.9,reviews:12,address:"Jl. Itjang Djoedibarie",website:""},
+  {name:"Kost GW House",area:"Caringin",rating:4.9,reviews:12,address:"Jl. Caringin No.84",website:""},
+  {name:"Kost Bunda",area:"Caringin",rating:4.8,reviews:12,address:"Jl. Caringin",website:""},
+  {name:"WIsma Cendana",area:"GKPN",rating:4.4,reviews:12,address:"Jl. GKPN No.27",website:""},
+  {name:"Wisma Nagoya 2",area:"Cikuda",rating:4.5,reviews:11,address:"Jl. Cikuda No.9",website:""},
+  {name:"Pondok Jati",area:"Cikuda",rating:4.7,reviews:11,address:"Cikuda Nanggerang No.6",website:""},
+  {name:"Kost Tigapuluh",area:"Puri",rating:3.7,reviews:11,address:"Jalan Puri Permai VI Blok A30",website:""},
+  {name:"Kost Pak Ayot",area:"Lainnya",rating:4.8,reviews:11,address:"Jatinangor",website:""},
+  {name:"Pondok Dedi Kusnandar",area:"Lainnya",rating:4.3,reviews:11,address:"Ciseke Kecil",website:""},
+  {name:"Wisma Khairunnisa",area:"Lainnya",rating:4.5,reviews:11,address:"Jatinangor",website:""},
+  {name:"Pondok Puri Tiga Dara",area:"Hegarmanah",rating:4.2,reviews:10,address:"Hegarmanah No.3",website:""},
+  {name:"KOST-AN IBU EUIS",area:"Ciseke",rating:4.4,reviews:10,address:"Jl. Ciseke No.1",website:""},
+  {name:"Ma Maison UNPAD",area:"Lainnya",rating:5.0,reviews:10,address:"Jatinangor",website:""},
+  {name:"ALMEERA HOUSE",area:"Lainnya",rating:4.8,reviews:10,address:"Jatinangor",website:""},
+  {name:"Wisma Lokapala",area:"Lainnya",rating:4.0,reviews:10,address:"Jatinangor",website:""},
+  {name:"Kost Pondok Griya Roby",area:"Ciseke",rating:4.5,reviews:10,address:"Jl. Ciseke",website:""},
+  {name:"Pondok Kartika 1",area:"Lainnya",rating:5.0,reviews:10,address:"Jatinangor",website:""},
+  {name:"Kost Bumi Campernik",area:"Ciseke",rating:5.0,reviews:10,address:"Jl. Ciseke No.246",website:""},
+  {name:"Pondok Kusuma",area:"Lainnya",rating:5.0,reviews:10,address:"Gg. Mawar 2",website:""},
+  {name:"Kost Rumah Eyang",area:"Puri",rating:4.9,reviews:10,address:"Puri Indah Jatinangor No.B1-15",website:""},
+  {name:"Puri Aditya Kost",area:"Puri",rating:5.0,reviews:9,address:"Jl. Kolonel Achmad Syam No.5",website:""},
+  {name:"Pondok Reni",area:"Ciseke",rating:4.8,reviews:9,address:"Jl. Ciseke no 84",website:""},
+  {name:"Kost Putra ImahKita",area:"Hegarmanah",rating:5.0,reviews:9,address:"Jl. Cisaladah",website:""},
+  {name:"KOST PUTRA BUANA INDAH",area:"Sayang",rating:4.6,reviews:9,address:"Jl. Kolonel Achmad Syam No.151",website:""},
+  {name:"Kost D'Cattleya",area:"Sayang",rating:4.8,reviews:9,address:"Jl. Kolonel Achmad Syam No.49a",website:""},
+  {name:"Pondok Resti",area:"Ciseke",rating:4.6,reviews:9,address:"Jl. Ciseke No.245",website:""},
+  {name:"Kost Jelita",area:"Ciseke",rating:4.8,reviews:9,address:"Jl. Ciseke",website:""},
+  {name:"WARDHANI KOST PUTRI",area:"Caringin",rating:4.8,reviews:9,address:"Jl. Caringin No.16",website:""},
+  {name:"KOS_ PA ENGKOS",area:"Ciseke",rating:4.8,reviews:9,address:"Jl. Ciseke No.111",website:""},
+  {name:"Dyana kost",area:"Caringin",rating:5.0,reviews:9,address:"Jl. Caringin Gg. Anggrek",website:""},
+  {name:"Pondok Annisa",area:"Ciseke",rating:5.0,reviews:9,address:"Jl. Ciseke",website:""},
+  {name:"Kost Putri Pondok Ayra",area:"Ciseke",rating:5.0,reviews:8,address:"Jalan Ciseke Besar No 228",website:""},
+  {name:"Kost Muslimah Kautsar",area:"Sayang",rating:4.5,reviews:8,address:"Jl. Kol Achmad Syam No.2",website:""},
+  {name:"JACOPO Kost",area:"Jalan Raya",rating:5.0,reviews:8,address:"Jl. Raya Jatinangor",website:""},
+  {name:"Granada Kost",area:"Puri",rating:5.0,reviews:8,address:"Jalan Puri Cendikia No.2",website:""},
+  {name:"Kost Millennium",area:"Sukawening",rating:4.9,reviews:8,address:"Sukawening",website:""},
+  {name:"ERZA KOST",area:"Lainnya",rating:5.0,reviews:7,address:"Cileles",website:""},
+  {name:"Kost Pondok Bunda Rama",area:"Lainnya",rating:4.9,reviews:7,address:"Jatinangor",website:""},
+  {name:"Rumah Kost",area:"Lainnya",rating:5.0,reviews:6,address:"Kp Citanggulun",website:""},
+  {name:"Kosan pria pondok citra 86",area:"Ciseke",rating:5.0,reviews:6,address:"Jl. Ciseke No.257",website:""},
+  {name:"Ratu Pesona",area:"Cikuda",rating:4.8,reviews:6,address:"Jl. Cikuda No.16",website:""},
+  {name:"Kosan Makuyung",area:"Lainnya",rating:3.3,reviews:6,address:"Makuyung",website:""},
+  {name:"Kos putri gendis geulis",area:"Lainnya",rating:5.0,reviews:6,address:"Jl. Letda Lukito No.121",website:""},
+  {name:"Pondokan Rizky Kostan",area:"Lainnya",rating:4.8,reviews:6,address:"Gg. H.Zakaria No.2",website:""},
+  {name:"Rumah Kost Andhary",area:"Lainnya",rating:4.7,reviews:6,address:"Jatinangor",website:""},
+  {name:"Griya Murti",area:"Cikuda",rating:5.0,reviews:5,address:"Cikuda Nanggerang No.6",website:""},
+  {name:"Pondok Adento",area:"Ciseke",rating:4.6,reviews:5,address:"Jl.Ciseke Besar",website:""},
+  {name:"Pondok Putri Jawara",area:"Jalan Raya",rating:4.6,reviews:5,address:"Jl. Raya Jatinangor No.181B",website:""},
+  {name:"Cendana Kost",area:"Lainnya",rating:4.2,reviews:5,address:"Jalan Raya",website:""},
+  {name:"Mawar kost putri",area:"Sukawening",rating:5.0,reviews:5,address:"Jl. Sukawening",website:""},
+  {name:"Kosan Ajoy",area:"Lainnya",rating:5.0,reviews:5,address:"Jalan Kp. Persib",website:""},
+  {name:"Kosan ibu Tintin",area:"Lainnya",rating:4.0,reviews:5,address:"kampung Warung Kalde",website:""},
+  {name:"Casa De Fiore",area:"Cikuda",rating:4.2,reviews:5,address:"Jl. Cikuda No.9",website:"http://instagram.com/casa.de.fiore"}
 ];
 
 const kosanData = rawKosanData.map(k => {
   k.hot = k.reviews >= 100;
   k.isTerbaik = k.rating === 5.0;
   
-  // Membuat link pencarian Google Maps (Format: Nama Kosan + Jatinangor agar akurat)
+  // Format link Google Maps
   const searchQuery = encodeURIComponent(k.name + " Jatinangor");
-  k.mapsLink = `https://www.google.com/maps/search/?api=1&query=${searchQuery}`;
+  k.mapsLink = `http://googleusercontent.com/maps.google.com/?q=${searchQuery}`;
 
   return k;
 });
@@ -541,7 +553,7 @@ function renderCards(list) {
           <div style="flex: 1;">
             <div class="card-title">${k.name}</div>
             <div class="card-meta">
-              <span class="badge-area"><span class="dot" style="background:${AREA_COLORS[k.area]}"></span>${k.area}</span>
+              <span class="badge-area"><span class="dot" style="background:${AREA_COLORS[k.area] || '#64748B'}"></span>${k.area}</span>
               ${k.hot ? '<span class="badge badge-hot"><i class="ti ti-flame" style="font-size:12px"></i> Populer</span>' : ''}
               ${k.isTerbaik ? '<span class="badge badge-terbaik">Terbaik</span>' : ''}
             </div>
