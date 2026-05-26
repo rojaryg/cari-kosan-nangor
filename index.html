@@ -92,7 +92,7 @@
   
   .app-container {
     width: 100%;
-    max-width: 480px; /* Maksimal lebar seperti layar HP */
+    max-width: 480px;
     background-color: var(--bg-3);
     min-height: 100vh;
     display: flex;
@@ -159,7 +159,6 @@
     gap: 8px;
     overflow-x: auto;
     padding-bottom: 4px;
-    /* Menyembunyikan scrollbar tapi tetap bisa di-scroll */
     -ms-overflow-style: none; scrollbar-width: none;
   }
   .chip-row::-webkit-scrollbar { display: none; }
@@ -253,8 +252,8 @@
     cursor: pointer; border: none; transition: all 0.2s; margin-bottom: 8px;
     font-family: var(--font);
   }
-  .btn-wa { background: #10B981; color: white; }
-  .btn-wa:active { background: #059669; }
+  .btn-maps { background: #4285F4; color: white; }
+  .btn-maps:active { background: #3367D6; }
   .btn-web { background: var(--bg-2); color: var(--accent); border: 1px solid var(--border-2); }
   
   .toggle-text {
@@ -277,7 +276,7 @@
     <div class="header-top">
       <div class="title-area">
         <h1><i class="ti ti-home-search"></i> Kosan Jatinangor</h1>
-        <p>Cari Kosan di Jatinangor</p>
+        <p>Temukan kosan idaman di sekitar Unpad</p>
       </div>
       <div style="display: flex; gap: 4px;">
         <button class="chip chip-theme" id="btnDark" onclick="setTheme('dark')"><i class="ti ti-moon"></i></button>
@@ -316,7 +315,6 @@ function setTheme(themeName) {
   
   localStorage.setItem('kosan-theme-mobile', themeName);
   
-  // Update icon styles
   ['btnDark', 'btnLight', 'btnSamudra'].forEach(id => {
     document.getElementById(id).style.color = (id.toLowerCase().includes(themeName) || (themeName==='dark' && id==='btnDark')) ? 'var(--accent)' : 'var(--text-2)';
   });
@@ -333,119 +331,116 @@ const AREA_COLORS = {
 };
 
 const rawKosanData = [
-  {name:"Casa de Aminda",area:"Jalan Raya",rating:4.2,reviews:532,address:"Jl. Ir. Soekarno No.309",phone:"+62 812-9123-5657",website:"https://amindahotel.com/"},
-  {name:"Pondok Abah uni 1 & 2 jatinangor",area:"Ciawi",rating:5.0,reviews:227,address:"Ciawi Gg haji nena",phone:"+62 853-1504-0793",website:""},
-  {name:"KOST PURI TORINA Jatinangor",area:"Cikuda",rating:4.5,reviews:197,address:"Jl. Cikuda No.16",phone:"+62 896-7165-1051",website:"http://puritorina.com/"},
-  {name:"Bumi Kartika Asri",area:"Caringin",rating:4.5,reviews:171,address:"Jl. Caringin No.20",phone:"+62 22 7781890",website:"http://www.bumikartikaasri.com/"},
-  {name:"Wisma Tri Arga",area:"GKPN",rating:4.3,reviews:154,address:"Jl. GKPN No.80 A",phone:"+62 22 7781693",website:""},
-  {name:"Wisma Boulevard 1",area:"Caringin",rating:4.3,reviews:137,address:"Jl. Caringin No.69A",phone:"+62 812-1899-8808",website:""},
-  {name:"Aparkost HMG & GANESHA Tower Caringin",area:"Caringin",rating:4.3,reviews:136,address:"Jl. Caringin",phone:"+62 812-2405-5271",website:""},
-  {name:"Nuansa Indah Kost",area:"Sayang",rating:4.9,reviews:134,address:"Jl. Letda Lukito No.19",phone:"+62 821-2050-7027",website:""},
-  {name:"Rumah Kost Bumi Sadang",area:"GKPN",rating:4.8,reviews:108,address:"Jl. GKPN No.38",phone:"+62 853-1000-0410",website:""},
-  {name:"Wisma Arkey",area:"Caringin",rating:4.5,reviews:103,address:"Jl. Caringin",phone:"+62 812-2333-897",website:""},
-  {name:"Pondok Raditya",area:"Ciseke",rating:4.3,reviews:98,address:"Jl. Ciseke No.189",phone:"+62 852-9921-3416",website:""},
-  {name:"Bunga Mas Kost",area:"Jalan Raya",rating:4.2,reviews:92,address:"Jl. Raya Jatinangor No.220",phone:"+62 812-9339-7789",website:""},
-  {name:"KosAnggrek",area:"Sayang",rating:4.6,reviews:79,address:"Jl. Kolonel Achmad Syam",phone:"+62 22 7797788",website:""},
-  {name:"Wisma Jayalaras Jatinangor Kos Putra",area:"GKPN",rating:4.5,reviews:79,address:"Jl. GKPN No.34",phone:"+62 897-2994-717",website:""},
-  {name:"Pondok Dara 1",area:"Jalan Raya",rating:4.4,reviews:78,address:"Jl. Raya Jatinangor No.94",phone:"",website:""},
-  {name:"Wisma Jatinangor 3",area:"Puri",rating:4.4,reviews:76,address:"Perum Puri Indah No.25 Blok B1",phone:"+62 822-5187-8194",website:""},
-  {name:"Permata Kost",area:"Sukawening",rating:4.3,reviews:72,address:"Jl. Sukawening",phone:"+62 812-1475-862",website:""},
-  {name:"Kost Green House Jatinangor",area:"Hegarmanah",rating:4.4,reviews:69,address:"Hegarmanah",phone:"+62 822-1452-8000",website:""},
-  {name:"Pondok Djati",area:"GKPN",rating:4.5,reviews:69,address:"Jl. GKPN",phone:"",website:""},
-  {name:"Pondok Sakinah 2",area:"Ciseke",rating:4.1,reviews:69,address:"Jl. Ciseke",phone:"+62 853-1256-3844",website:""},
-  {name:"Kost Flosse House Jatinangor",area:"Puri",rating:4.4,reviews:69,address:"Jl. Puri Asri IV, Blok C5/2-6",phone:"+62 813-1230-0044",website:""},
-  {name:"Anabela",area:"GKPN",rating:4.3,reviews:69,address:"Jl. GKPN",phone:"",website:""},
-  {name:"Pondok Vandani",area:"Jalan Raya",rating:4.0,reviews:66,address:"Jl. Cipacing",phone:"+62 857-9470-7760",website:""},
-  {name:"Casa Mia Kost Exclusive",area:"Sayang",rating:4.5,reviews:65,address:"Jl. Kolonel Achmad Syam No.192",phone:"+62 813-8080-3688",website:""},
-  {name:"Kosan Jatinangor Asri",area:"Jalan Raya",rating:4.2,reviews:64,address:"Jatinangor",phone:"+62 813-8894-4488",website:""},
-  {name:"Pondok Kayu",area:"Sayang",rating:4.6,reviews:64,address:"Jl. Kolonel Achmad Syam No.48 A",phone:"+62 878-2110-9240",website:""},
-  {name:"Kost The Hill Jatinangor",area:"Sayang",rating:5.0,reviews:57,address:"Jl. Pesantren No.17",phone:"+62 822-9955-2238",website:""},
-  {name:"Kost Putri Jatinangor",area:"Puri",rating:4.5,reviews:56,address:"Jl. Kolonel Achmad Syam No.Blok A",phone:"+62 812-1219-8175",website:""},
-  {name:"KOST PRIMADINA",area:"Sukawening",rating:4.8,reviews:56,address:"Jl. Sukawening",phone:"+62 897-8580-744",website:""},
-  {name:"Rumah Khairaa Kost",area:"Cikuda",rating:4.8,reviews:56,address:"Jl. Letda Lukito Dsn.Cikuda No.18",phone:"+62 813-9556-0029",website:""},
-  {name:"Kost D'xtrie",area:"Sukawening",rating:4.4,reviews:54,address:"Sukawening",phone:"+62 812-6601-757",website:""},
-  {name:"Pondok Angsana",area:"Ciseke",rating:4.1,reviews:50,address:"Jl. Ciseke No.324",phone:"+62 851-7414-5363",website:""},
-  {name:"Elysia Residence",area:"Caringin",rating:5.0,reviews:50,address:"Jl. Caringin Garden Residence No.4 Kav. A",phone:"+62 877-8257-9029",website:""},
-  {name:"KOST Al Ruwais",area:"Sayang",rating:4.8,reviews:49,address:"Jl. Kolonel Achmad Syam No.98",phone:"+62 888-2177-577",website:""},
-  {name:"Griya Santosa",area:"Cikuda",rating:4.5,reviews:46,address:"Jl. Cikuda",phone:"+62 813-1233-2612",website:""},
-  {name:"Kost Putri Wisma Mayangsari",area:"Jalan Raya",rating:4.5,reviews:46,address:"Jl. Itjang Djoedibarie",phone:"+62 815-7200-0720",website:""},
-  {name:"Pondok Sehat Jatinangor",area:"Jalan Raya",rating:5.0,reviews:46,address:"Jl. KH Hasan Mustopha",phone:"+62 811-204-274",website:""},
-  {name:"Rumah Kacapiring",area:"Cikuda",rating:4.7,reviews:46,address:"Cikeruh",phone:"+62 811-2103-104",website:""},
-  {name:"J-Kost",area:"Puri",rating:4.5,reviews:46,address:"Jl. Puri Indah Jatinangor No.17 Blok C6",phone:"+62 878-2213-3344",website:""},
-  {name:"Pondok Orange",area:"Sayang",rating:4.4,reviews:44,address:"Jl. Kolonel Achmad Syam No.46",phone:"",website:""},
-  {name:"Pondok Putri Barokah 232",area:"Ciseke",rating:4.7,reviews:44,address:"Jl. Ciseke",phone:"",website:""},
-  {name:"Pondok Candra",area:"Ciseke",rating:4.5,reviews:44,address:"Jl. Ciseke",phone:"+62 898-7757-482",website:""},
-  {name:"Kost GRIYA ALAM",area:"Cisaladah",rating:4.3,reviews:43,address:"Jl. Cisaladah",phone:"+62 813-2266-0665",website:""},
-  {name:"Pondok Zaki (putri)",area:"Ciseke",rating:4.8,reviews:43,address:"Ciseke Besar, Gg. Masjid Al-Barokah No.213",phone:"+62 812-2029-3211",website:""},
-  {name:"Kost Putri Handayani",area:"Jalan Raya",rating:4.4,reviews:42,address:"Jl. Raya Jatinangor No.139",phone:"+62 821-2670-0121",website:""},
-  {name:"Pondok Hegar",area:"Sukawening",rating:4.5,reviews:41,address:"Sukawening",phone:"",website:""},
-  {name:"Kost ameera 1",area:"Kp. Geulis",rating:4.7,reviews:40,address:"Jl. Kp. Geulis No.18",phone:"+62 811-951-891",website:""},
-  {name:"Pondok Isna",area:"Ciseke",rating:4.0,reviews:40,address:"Jl. Ciseke No.62",phone:"+62 812-2000-5258",website:""},
-  {name:"Gwenza Kost",area:"Caringin",rating:5.0,reviews:40,address:"Jl. Caringin No.49",phone:"+62 896-9650-8000",website:""},
-  {name:"Kost Putri Pondok Cattleya",area:"Sayang",rating:4.7,reviews:37,address:"Sayang",phone:"+62 811-235-601",website:""},
-  {name:"Kost Anugerah Putri Jatinangor",area:"Caringin",rating:4.4,reviews:37,address:"Jl. Caringin No.6",phone:"+62 813-2131-2855",website:""},
-  {name:"Wisma Beriman",area:"Kp. Geulis",rating:4.6,reviews:37,address:"Jl. Kp. Geulis No.63",phone:"+62 896-2406-0538",website:""},
-  {name:"Pondok Salsabila",area:"Jalan Raya",rating:4.4,reviews:37,address:"Jl. Raya Jatinangor No.96",phone:"+62 821-3024-5909",website:""},
-  {name:"Kost Puri Cendana",area:"Jalan Raya",rating:4.4,reviews:36,address:"Jl. Itjang Djoedibarie No.27 E",phone:"+62 22 7797788",website:""},
-  {name:"Hegarmanah Hills",area:"Cikuda",rating:4.3,reviews:36,address:"Jl. Nanggerang No.36A",phone:"+62 817-211-283",website:""},
-  {name:"PONDOK MI JATINANGOR",area:"Sayang",rating:4.5,reviews:35,address:"Sayang",phone:"",website:""},
-  {name:"Kost SAWERIGADING",area:"Caringin",rating:3.7,reviews:35,address:"Jl. Caringin No.23",phone:"+62 812-2277-5323",website:""},
-  {name:"Pondok JM",area:"Sukawening",rating:4.5,reviews:34,address:"Sukawening",phone:"",website:""},
-  {name:"The Aya Kost",area:"Sayang",rating:4.6,reviews:34,address:"Sayang",phone:"+62 895-3375-10408",website:""},
-  {name:"Kost Griya Nawaloka",area:"Jalan Raya",rating:4.7,reviews:33,address:"Jl. Raya Jatinangor No.286",phone:"+62 822-3399-5599",website:""},
-  {name:"Pondok Jogja",area:"Sukawening",rating:4.2,reviews:32,address:"Jl. Sukawening",phone:"",website:""},
-  {name:"UP2'U KOST PUTERI",area:"Kp. Geulis",rating:4.0,reviews:32,address:"Jl. Kp. Geulis",phone:"+62 822-1933-4527",website:""},
-  {name:"Wisma Vidya",area:"Caringin",rating:4.3,reviews:32,address:"Jl. Caringin No.8",phone:"+62 22 7781784",website:""},
-  {name:"Bumi Indraprasta - Jatinangor",area:"Ciseke",rating:4.6,reviews:32,address:"Jl. Ciseke",phone:"+62 812-8896-6227",website:""},
-  {name:"Permata Kost - Student Accomodation",area:"Cikuda",rating:4.6,reviews:31,address:"Jl. Cikuda No.277A",phone:"+62 856-7812-330",website:""},
-  {name:"Kost Putri Jatinangor - Aksara",area:"Sukawening",rating:4.4,reviews:31,address:"Jl. Sukawening",phone:"+62 815-1991-1999",website:""},
-  {name:"Wisma Regina",area:"Kp. Geulis",rating:4.4,reviews:31,address:"Jl. Kp. Geulis",phone:"+62 823-1722-9968",website:""},
-  {name:"Kosan di jatinangor (wisma regina)",area:"Kp. Geulis",rating:4.4,reviews:31,address:"Jl. Kp. Geulis",phone:"+62 823-1722-9968",website:""},
-  {name:"Kost Putri Puri Yasmin",area:"Puri",rating:4.4,reviews:30,address:"Puri",phone:"+62 877-2275-8871",website:""},
-  {name:"Kost Sederhana I Unpad",area:"Cikuda",rating:5.0,reviews:30,address:"Jl. Cikuda No.12",phone:"+62 819-5340-3884",website:""},
-  {name:"Wisma Bahari",area:"Jalan Raya",rating:4.7,reviews:30,address:"Cisempur",phone:"",website:""},
-  {name:"Pondok Rangga",area:"Ciseke",rating:4.3,reviews:30,address:"Jalan Ciseke Besar No.109",phone:"+62 821-2050-7367",website:""},
-  {name:"Pondok Wangi",area:"GKPN",rating:4.5,reviews:30,address:"Jl. GKPN No.27 A",phone:"",website:""},
-  {name:"Villa Lengkob Kirpay",area:"Sayang",rating:3.9,reviews:29,address:"Sayang",phone:"+62 812-8888-705",website:""},
-  {name:"Pondok Cendekia Jatinangor",area:"Cikuda",rating:4.6,reviews:29,address:"Jl. Cikuda",phone:"+62 821-1287-1464",website:""},
-  {name:"Kost Griya Purnama Jatinangor",area:"Cikuda",rating:5.0,reviews:28,address:"Cikeruh, Jatinangor",phone:"+62 812-8162-5255",website:""},
-  {name:"Rumah Kost Lantana Jatinangor",area:"Jalan Raya",rating:4.6,reviews:28,address:"Jl. Itjang Djoedibarie No.52",phone:"+62 896-5704-4094",website:""},
-  {name:"Pondok Asri",area:"Jalan Raya",rating:4.7,reviews:28,address:"Jl. Itjang Djoedibarie No.239",phone:"",website:""},
-  {name:"Kost Bougenville Jatinangor",area:"Caringin",rating:4.5,reviews:28,address:"Jl. Caringin No.69",phone:"+62 878-6461-8627",website:""},
-  {name:"Zahraan Dormitory",area:"Sayang",rating:5.0,reviews:27,address:"Jl. Kolonel Achmad Syam",phone:"+62 811-2162-307",website:""},
-  {name:"Kost Wisma Kartika 1996",area:"Sayang",rating:4.6,reviews:26,address:"Jl. Kolonel Ahmad Syam no 71",phone:"+62 821-2081-0006",website:""},
-  {name:"Pondok Ray",area:"Sayang",rating:4.5,reviews:26,address:"Jl. Kolonel Achmad Syam No.37",phone:"",website:""},
-  {name:"Namira Kost",area:"Ciseke",rating:4.3,reviews:25,address:"Jl. Ciseke",phone:"+62 853-1412-4140",website:""},
-  {name:"Kost Megara Zukhruf",area:"Puri",rating:4.8,reviews:25,address:"Jl. Puri Indah Jatinangor BLOK D5",phone:"+62 896-3666-5967",website:""},
-  {name:"Pondok Atika",area:"Ciseke",rating:4.5,reviews:25,address:"Jl. Ciseke No.42",phone:"+62 813-2150-7711",website:""},
-  {name:"Pondok Agape - Kost Murah",area:"Ciawi",rating:4.5,reviews:24,address:"Gang Haji Nena",phone:"+62 838-2070-9900",website:""},
-  {name:"Rumah Kost Genduk Geulis",area:"Puri",rating:4.7,reviews:24,address:"Jl. Puri Permai II Blok K3 No.3 & 4",phone:"+62 823-2309-3138",website:""},
-  {name:"Kost Casa Elegante",area:"Ciseke",rating:4.3,reviews:24,address:"Jl. Ciseke No.162",phone:"+62 811-155-466",website:""},
-  {name:"Pondok HARINA",area:"Sayang",rating:4.6,reviews:23,address:"Jl. Kolonel Achmad Syam No.284",phone:"+62 821-9014-3690",website:""},
-  {name:"Kosan graha wgm",area:"Cikuda",rating:5.0,reviews:22,address:"Cileles Jatinangor",phone:"+62 819-9884-1559",website:""},
-  {name:"KOST PAJAJARAN",area:"GKPN",rating:4.8,reviews:22,address:"Jl. GKPN No.52b",phone:"+62 822-3469-4221",website:""},
-  {name:"Griya Aditya Jatinangor",area:"Kp. Geulis",rating:5.0,reviews:21,address:"Jl. Kp. Geulis No.116",phone:"",website:""},
-  {name:"Kost Putri Das Haus",area:"Caringin",rating:4.7,reviews:21,address:"Jl. Caringin Gg. Anggrek No.46",phone:"+62 878-7711-1564",website:""},
-  {name:"Hoop Kost",area:"Sayang",rating:4.8,reviews:21,address:"Jl. Kolonel Achmad Syam No.40",phone:"+62 838-7801-6548",website:""},
-  {name:"Kost Puri C4",area:"Puri",rating:4.8,reviews:21,address:"Komplek Puri Indah No.C4",phone:"+62 818-0620-2508",website:""},
-  {name:"Kost Wisma Areta 2",area:"Caringin",rating:4.7,reviews:21,address:"Jl. Caringin Blok Cipari",phone:"+62 811-1927-300",website:""},
-  {name:"Kosan Berkah Jatinangor",area:"Sayang",rating:4.3,reviews:20,address:"Jl. Kolonel Achmad Syam Gang Haji Nena",phone:"+62 853-2002-0449",website:""},
-  {name:"wisma gedong",area:"Ciseke",rating:4.4,reviews:20,address:"Jl. Ciseke",phone:"+62 853-1175-6557",website:""},
-  {name:"Kost Putri AB Residence",area:"Caringin",rating:4.4,reviews:20,address:"Jl. Caringin No.21",phone:"+62 817-4934-949",website:""},
-  {name:"Pondok RE",area:"Sayang",rating:4.8,reviews:19,address:"Jl. Kolonel Achmad Syam No.76A",phone:"",website:""}
+  {name:"Casa de Aminda",area:"Jalan Raya",rating:4.2,reviews:532,address:"Jl. Ir. Soekarno No.309",website:"https://amindahotel.com/"},
+  {name:"Pondok Abah uni 1 & 2 jatinangor",area:"Ciawi",rating:5.0,reviews:227,address:"Ciawi Gg haji nena",website:""},
+  {name:"KOST PURI TORINA Jatinangor",area:"Cikuda",rating:4.5,reviews:197,address:"Jl. Cikuda No.16",website:"http://puritorina.com/"},
+  {name:"Bumi Kartika Asri",area:"Caringin",rating:4.5,reviews:171,address:"Jl. Caringin No.20",website:"http://www.bumikartikaasri.com/"},
+  {name:"Wisma Tri Arga",area:"GKPN",rating:4.3,reviews:154,address:"Jl. GKPN No.80 A",website:""},
+  {name:"Wisma Boulevard 1",area:"Caringin",rating:4.3,reviews:137,address:"Jl. Caringin No.69A",website:""},
+  {name:"Aparkost HMG & GANESHA Tower Caringin",area:"Caringin",rating:4.3,reviews:136,address:"Jl. Caringin",website:""},
+  {name:"Nuansa Indah Kost",area:"Sayang",rating:4.9,reviews:134,address:"Jl. Letda Lukito No.19",website:""},
+  {name:"Rumah Kost Bumi Sadang",area:"GKPN",rating:4.8,reviews:108,address:"Jl. GKPN No.38",website:""},
+  {name:"Wisma Arkey",area:"Caringin",rating:4.5,reviews:103,address:"Jl. Caringin",website:""},
+  {name:"Pondok Raditya",area:"Ciseke",rating:4.3,reviews:98,address:"Jl. Ciseke No.189",website:""},
+  {name:"Bunga Mas Kost",area:"Jalan Raya",rating:4.2,reviews:92,address:"Jl. Raya Jatinangor No.220",website:""},
+  {name:"KosAnggrek",area:"Sayang",rating:4.6,reviews:79,address:"Jl. Kolonel Achmad Syam",website:""},
+  {name:"Wisma Jayalaras Jatinangor Kos Putra",area:"GKPN",rating:4.5,reviews:79,address:"Jl. GKPN No.34",website:""},
+  {name:"Pondok Dara 1",area:"Jalan Raya",rating:4.4,reviews:78,address:"Jl. Raya Jatinangor No.94",website:""},
+  {name:"Wisma Jatinangor 3",area:"Puri",rating:4.4,reviews:76,address:"Perum Puri Indah No.25 Blok B1",website:""},
+  {name:"Permata Kost",area:"Sukawening",rating:4.3,reviews:72,address:"Jl. Sukawening",website:""},
+  {name:"Kost Green House Jatinangor",area:"Hegarmanah",rating:4.4,reviews:69,address:"Hegarmanah",website:""},
+  {name:"Pondok Djati",area:"GKPN",rating:4.5,reviews:69,address:"Jl. GKPN",website:""},
+  {name:"Pondok Sakinah 2",area:"Ciseke",rating:4.1,reviews:69,address:"Jl. Ciseke",website:""},
+  {name:"Kost Flosse House Jatinangor",area:"Puri",rating:4.4,reviews:69,address:"Jl. Puri Asri IV, Blok C5/2-6",website:""},
+  {name:"Anabela",area:"GKPN",rating:4.3,reviews:69,address:"Jl. GKPN",website:""},
+  {name:"Pondok Vandani",area:"Jalan Raya",rating:4.0,reviews:66,address:"Jl. Cipacing",website:""},
+  {name:"Casa Mia Kost Exclusive",area:"Sayang",rating:4.5,reviews:65,address:"Jl. Kolonel Achmad Syam No.192",website:""},
+  {name:"Kosan Jatinangor Asri",area:"Jalan Raya",rating:4.2,reviews:64,address:"Jatinangor",website:""},
+  {name:"Pondok Kayu",area:"Sayang",rating:4.6,reviews:64,address:"Jl. Kolonel Achmad Syam No.48 A",website:""},
+  {name:"Kost The Hill Jatinangor",area:"Sayang",rating:5.0,reviews:57,address:"Jl. Pesantren No.17",website:""},
+  {name:"Kost Putri Jatinangor",area:"Puri",rating:4.5,reviews:56,address:"Jl. Kolonel Achmad Syam No.Blok A",website:""},
+  {name:"KOST PRIMADINA",area:"Sukawening",rating:4.8,reviews:56,address:"Jl. Sukawening",website:""},
+  {name:"Rumah Khairaa Kost",area:"Cikuda",rating:4.8,reviews:56,address:"Jl. Letda Lukito Dsn.Cikuda No.18",website:""},
+  {name:"Kost D'xtrie",area:"Sukawening",rating:4.4,reviews:54,address:"Sukawening",website:""},
+  {name:"Pondok Angsana",area:"Ciseke",rating:4.1,reviews:50,address:"Jl. Ciseke No.324",website:""},
+  {name:"Elysia Residence",area:"Caringin",rating:5.0,reviews:50,address:"Jl. Caringin Garden Residence No.4 Kav. A",website:""},
+  {name:"KOST Al Ruwais",area:"Sayang",rating:4.8,reviews:49,address:"Jl. Kolonel Achmad Syam No.98",website:""},
+  {name:"Griya Santosa",area:"Cikuda",rating:4.5,reviews:46,address:"Jl. Cikuda",website:""},
+  {name:"Kost Putri Wisma Mayangsari",area:"Jalan Raya",rating:4.5,reviews:46,address:"Jl. Itjang Djoedibarie",website:""},
+  {name:"Pondok Sehat Jatinangor",area:"Jalan Raya",rating:5.0,reviews:46,address:"Jl. KH Hasan Mustopha",website:""},
+  {name:"Rumah Kacapiring",area:"Cikuda",rating:4.7,reviews:46,address:"Cikeruh",website:""},
+  {name:"J-Kost",area:"Puri",rating:4.5,reviews:46,address:"Jl. Puri Indah Jatinangor No.17 Blok C6",website:""},
+  {name:"Pondok Orange",area:"Sayang",rating:4.4,reviews:44,address:"Jl. Kolonel Achmad Syam No.46",website:""},
+  {name:"Pondok Putri Barokah 232",area:"Ciseke",rating:4.7,reviews:44,address:"Jl. Ciseke",website:""},
+  {name:"Pondok Candra",area:"Ciseke",rating:4.5,reviews:44,address:"Jl. Ciseke",website:""},
+  {name:"Kost GRIYA ALAM",area:"Cisaladah",rating:4.3,reviews:43,address:"Jl. Cisaladah",website:""},
+  {name:"Pondok Zaki (putri)",area:"Ciseke",rating:4.8,reviews:43,address:"Ciseke Besar, Gg. Masjid Al-Barokah No.213",website:""},
+  {name:"Kost Putri Handayani",area:"Jalan Raya",rating:4.4,reviews:42,address:"Jl. Raya Jatinangor No.139",website:""},
+  {name:"Pondok Hegar",area:"Sukawening",rating:4.5,reviews:41,address:"Sukawening",website:""},
+  {name:"Kost ameera 1",area:"Kp. Geulis",rating:4.7,reviews:40,address:"Jl. Kp. Geulis No.18",website:""},
+  {name:"Pondok Isna",area:"Ciseke",rating:4.0,reviews:40,address:"Jl. Ciseke No.62",website:""},
+  {name:"Gwenza Kost",area:"Caringin",rating:5.0,reviews:40,address:"Jl. Caringin No.49",website:""},
+  {name:"Kost Putri Pondok Cattleya",area:"Sayang",rating:4.7,reviews:37,address:"Sayang",website:""},
+  {name:"Kost Anugerah Putri Jatinangor",area:"Caringin",rating:4.4,reviews:37,address:"Jl. Caringin No.6",website:""},
+  {name:"Wisma Beriman",area:"Kp. Geulis",rating:4.6,reviews:37,address:"Jl. Kp. Geulis No.63",website:""},
+  {name:"Pondok Salsabila",area:"Jalan Raya",rating:4.4,reviews:37,address:"Jl. Raya Jatinangor No.96",website:""},
+  {name:"Kost Puri Cendana",area:"Jalan Raya",rating:4.4,reviews:36,address:"Jl. Itjang Djoedibarie No.27 E",website:""},
+  {name:"Hegarmanah Hills",area:"Cikuda",rating:4.3,reviews:36,address:"Jl. Nanggerang No.36A",website:""},
+  {name:"PONDOK MI JATINANGOR",area:"Sayang",rating:4.5,reviews:35,address:"Sayang",website:""},
+  {name:"Kost SAWERIGADING",area:"Caringin",rating:3.7,reviews:35,address:"Jl. Caringin No.23",website:""},
+  {name:"Pondok JM",area:"Sukawening",rating:4.5,reviews:34,address:"Sukawening",website:""},
+  {name:"The Aya Kost",area:"Sayang",rating:4.6,reviews:34,address:"Sayang",website:""},
+  {name:"Kost Griya Nawaloka",area:"Jalan Raya",rating:4.7,reviews:33,address:"Jl. Raya Jatinangor No.286",website:""},
+  {name:"Pondok Jogja",area:"Sukawening",rating:4.2,reviews:32,address:"Jl. Sukawening",website:""},
+  {name:"UP2'U KOST PUTERI",area:"Kp. Geulis",rating:4.0,reviews:32,address:"Jl. Kp. Geulis",website:""},
+  {name:"Wisma Vidya",area:"Caringin",rating:4.3,reviews:32,address:"Jl. Caringin No.8",website:""},
+  {name:"Bumi Indraprasta - Jatinangor",area:"Ciseke",rating:4.6,reviews:32,address:"Jl. Ciseke",website:""},
+  {name:"Permata Kost - Student Accomodation",area:"Cikuda",rating:4.6,reviews:31,address:"Jl. Cikuda No.277A",website:""},
+  {name:"Kost Putri Jatinangor - Aksara",area:"Sukawening",rating:4.4,reviews:31,address:"Jl. Sukawening",website:""},
+  {name:"Wisma Regina",area:"Kp. Geulis",rating:4.4,reviews:31,address:"Jl. Kp. Geulis",website:""},
+  {name:"Kosan di jatinangor (wisma regina)",area:"Kp. Geulis",rating:4.4,reviews:31,address:"Jl. Kp. Geulis",website:""},
+  {name:"Kost Putri Puri Yasmin",area:"Puri",rating:4.4,reviews:30,address:"Puri",website:""},
+  {name:"Kost Sederhana I Unpad",area:"Cikuda",rating:5.0,reviews:30,address:"Jl. Cikuda No.12",website:""},
+  {name:"Wisma Bahari",area:"Jalan Raya",rating:4.7,reviews:30,address:"Cisempur",website:""},
+  {name:"Pondok Rangga",area:"Ciseke",rating:4.3,reviews:30,address:"Jalan Ciseke Besar No.109",website:""},
+  {name:"Pondok Wangi",area:"GKPN",rating:4.5,reviews:30,address:"Jl. GKPN No.27 A",website:""},
+  {name:"Villa Lengkob Kirpay",area:"Sayang",rating:3.9,reviews:29,address:"Sayang",website:""},
+  {name:"Pondok Cendekia Jatinangor",area:"Cikuda",rating:4.6,reviews:29,address:"Jl. Cikuda",website:""},
+  {name:"Kost Griya Purnama Jatinangor",area:"Cikuda",rating:5.0,reviews:28,address:"Cikeruh, Jatinangor",website:""},
+  {name:"Rumah Kost Lantana Jatinangor",area:"Jalan Raya",rating:4.6,reviews:28,address:"Jl. Itjang Djoedibarie No.52",website:""},
+  {name:"Pondok Asri",area:"Jalan Raya",rating:4.7,reviews:28,address:"Jl. Itjang Djoedibarie No.239",website:""},
+  {name:"Kost Bougenville Jatinangor",area:"Caringin",rating:4.5,reviews:28,address:"Jl. Caringin No.69",website:""},
+  {name:"Zahraan Dormitory",area:"Sayang",rating:5.0,reviews:27,address:"Jl. Kolonel Achmad Syam",website:""},
+  {name:"Kost Wisma Kartika 1996",area:"Sayang",rating:4.6,reviews:26,address:"Jl. Kolonel Ahmad Syam no 71",website:""},
+  {name:"Pondok Ray",area:"Sayang",rating:4.5,reviews:26,address:"Jl. Kolonel Achmad Syam No.37",website:""},
+  {name:"Namira Kost",area:"Ciseke",rating:4.3,reviews:25,address:"Jl. Ciseke",website:""},
+  {name:"Kost Megara Zukhruf",area:"Puri",rating:4.8,reviews:25,address:"Jl. Puri Indah Jatinangor BLOK D5",website:""},
+  {name:"Pondok Atika",area:"Ciseke",rating:4.5,reviews:25,address:"Jl. Ciseke No.42",website:""},
+  {name:"Pondok Agape - Kost Murah",area:"Ciawi",rating:4.5,reviews:24,address:"Gang Haji Nena",website:""},
+  {name:"Rumah Kost Genduk Geulis",area:"Puri",rating:4.7,reviews:24,address:"Jl. Puri Permai II Blok K3 No.3 & 4",website:""},
+  {name:"Kost Casa Elegante",area:"Ciseke",rating:4.3,reviews:24,address:"Jl. Ciseke No.162",website:""},
+  {name:"Pondok HARINA",area:"Sayang",rating:4.6,reviews:23,address:"Jl. Kolonel Achmad Syam No.284",website:""},
+  {name:"Kosan graha wgm",area:"Cikuda",rating:5.0,reviews:22,address:"Cileles Jatinangor",website:""},
+  {name:"KOST PAJAJARAN",area:"GKPN",rating:4.8,reviews:22,address:"Jl. GKPN No.52b",website:""},
+  {name:"Griya Aditya Jatinangor",area:"Kp. Geulis",rating:5.0,reviews:21,address:"Jl. Kp. Geulis No.116",website:""},
+  {name:"Kost Putri Das Haus",area:"Caringin",rating:4.7,reviews:21,address:"Jl. Caringin Gg. Anggrek No.46",website:""},
+  {name:"Hoop Kost",area:"Sayang",rating:4.8,reviews:21,address:"Jl. Kolonel Achmad Syam No.40",website:""},
+  {name:"Kost Puri C4",area:"Puri",rating:4.8,reviews:21,address:"Komplek Puri Indah No.C4",website:""},
+  {name:"Kost Wisma Areta 2",area:"Caringin",rating:4.7,reviews:21,address:"Jl. Caringin Blok Cipari",website:""},
+  {name:"Kosan Berkah Jatinangor",area:"Sayang",rating:4.3,reviews:20,address:"Jl. Kolonel Achmad Syam Gang Haji Nena",website:""},
+  {name:"wisma gedong",area:"Ciseke",rating:4.4,reviews:20,address:"Jl. Ciseke",website:""},
+  {name:"Kost Putri AB Residence",area:"Caringin",rating:4.4,reviews:20,address:"Jl. Caringin No.21",website:""},
+  {name:"Pondok RE",area:"Sayang",rating:4.8,reviews:19,address:"Jl. Kolonel Achmad Syam No.76A",website:""}
 ];
 
 const kosanData = rawKosanData.map(k => {
   k.hot = k.reviews >= 100;
   k.isTerbaik = k.rating === 5.0;
   
-  // Format nomor WA
-  k.waLink = "";
-  if(k.phone && k.phone.trim() !== "") {
-    let cleanNum = k.phone.replace(/[^0-9]/g, '');
-    if(cleanNum.startsWith('0')) cleanNum = '62' + cleanNum.substring(1);
-    if(cleanNum.startsWith('62')) k.waLink = `https://wa.me/${cleanNum}`;
-  }
+  // Membuat link pencarian Google Maps (Format: Nama Kosan + Jatinangor agar akurat)
+  const searchQuery = encodeURIComponent(k.name + " Jatinangor");
+  k.mapsLink = `https://www.google.com/maps/search/?api=1&query=${searchQuery}`;
+
   return k;
 });
 
@@ -514,7 +509,7 @@ function filteredData() {
 
   if (sortBy === "az") list.sort((a, b) => a.name.localeCompare(b.name));
   else if (sortBy === "rating") list.sort((a, b) => b.rating - a.rating);
-  else list.sort((a, b) => b.reviews - a.reviews); // ulasan
+  else list.sort((a, b) => b.reviews - a.reviews);
 
   return list;
 }
@@ -535,10 +530,7 @@ function renderCards(list) {
 
   container.innerHTML = list.map(k => {
     const isOpen = openCard === k.name;
-    const phoneBtn = k.waLink 
-      ? `<a href="${k.waLink}" target="_blank" class="btn-action btn-wa"><i class="ti ti-brand-whatsapp" style="font-size:18px"></i> Hubungi Pemilik</a>` 
-      : `<button class="btn-action" style="background:var(--bg-2); color:var(--text-3); cursor:not-allowed;" disabled><i class="ti ti-phone-off"></i> Kontak Tidak Tersedia</button>`;
-    
+    const mapsBtn = `<a href="${k.mapsLink}" target="_blank" class="btn-action btn-maps"><i class="ti ti-map-search" style="font-size:18px"></i> Buka di Google Maps</a>`;
     const webBtn = k.website 
       ? `<a href="${k.website}" target="_blank" class="btn-action btn-web"><i class="ti ti-world" style="font-size:18px"></i> Buka Website / Link</a>` 
       : '';
@@ -564,7 +556,7 @@ function renderCards(list) {
         ${!isOpen ? `<div class="toggle-text">Ketuk untuk lihat detail <i class="ti ti-chevron-down" style="font-size:12px; vertical-align:middle"></i></div>` : ''}
 
         <div class="card-detail" onclick="event.stopPropagation()">
-          ${phoneBtn}
+          ${mapsBtn}
           ${webBtn}
         </div>
       </div>
